@@ -1,31 +1,32 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #05070a;
-  --color-panel: rgba(11, 16, 32, 0.88);
-  --color-card: rgba(15, 23, 42, 0.80);
-  --color-border: rgba(124, 58, 237, 0.20);
-  --color-border-bright: rgba(0, 229, 255, 0.30);
+  --color-background: #0a0e27;
+  --color-surface: #141e3c;
+  --color-panel: rgba(20, 30, 60, 0.6);
+  --color-card: rgba(26, 40, 84, 0.5);
+  --color-border: rgba(139, 92, 246, 0.15);
+  --color-border-bright: rgba(6, 182, 212, 0.25);
 
-  --color-violet: #7c3aed;
-  --color-violet-glow: #a855f7;
-  --color-cyan: #00e5ff;
-  --color-emerald: #00ff99;
-  --color-red: #ff4d6d;
-  --color-amber: #f59e0b;
+  --color-purple: #8b5cf6;
+  --color-purple-dark: #7c3aed;
+  --color-cyan: #06b6d4;
+  --color-emerald: #10b981;
+  --color-pink: #ec4899;
+  --color-blue: #3b82f6;
 
-  --color-foreground: #e5e7eb;
+  --color-foreground: #f1f5f9;
+  --color-foreground-secondary: #cbd5e1;
   --color-muted: #94a3b8;
-  --color-muted-dark: #475569;
-  --color-surface: rgba(15, 23, 42, 0.60);
+  --color-muted-dark: #64748b;
 
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-display: 'Rajdhani', 'Inter', system-ui, sans-serif;
 
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
 }
 
 *,
@@ -67,20 +68,20 @@ body,
 }
 
 /* Neon glow utilities */
-.glow-violet {
-  box-shadow: 0 0 16px rgba(168, 85, 247, 0.5), 0 0 32px rgba(168, 85, 247, 0.25);
+.glow-purple {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4), 0 0 40px rgba(139, 92, 246, 0.2);
 }
 .glow-cyan {
-  box-shadow: 0 0 16px rgba(0, 229, 255, 0.5), 0 0 32px rgba(0, 229, 255, 0.25);
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.4), 0 0 40px rgba(6, 182, 212, 0.2);
 }
-.glow-emerald {
-  box-shadow: 0 0 16px rgba(0, 255, 153, 0.5), 0 0 32px rgba(0, 255, 153, 0.2);
+.glow-pink {
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.35), 0 0 40px rgba(236, 72, 153, 0.15);
 }
-.text-glow-violet {
-  text-shadow: 0 0 8px rgba(168, 85, 247, 0.8), 0 0 16px rgba(168, 85, 247, 0.5);
+.text-glow-purple {
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.6), 0 0 20px rgba(139, 92, 246, 0.3);
 }
 .text-glow-cyan {
-  text-shadow: 0 0 8px rgba(0, 229, 255, 0.8), 0 0 16px rgba(0, 229, 255, 0.5);
+  text-shadow: 0 0 10px rgba(6, 182, 212, 0.6), 0 0 20px rgba(6, 182, 212, 0.3);
 }
 
 /* Glassmorphism */

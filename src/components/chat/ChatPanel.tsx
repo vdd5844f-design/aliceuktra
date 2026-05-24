@@ -10,7 +10,7 @@ function TypingIndicator() {
       {[0, 1, 2].map((i) => (
         <motion.div key={i}
           className="w-1.5 h-1.5 rounded-full"
-          style={{ background: '#a855f7', animationDelay: `${i * 0.2}s` }}
+          style={{ background: '#8b5cf6', animationDelay: `${i * 0.2}s` }}
           animate={{ scale: [0.8, 1.1, 0.8], opacity: [0.4, 1, 0.4] }}
           transition={{ duration: 1.4, repeat: Infinity, delay: i * 0.2 }}
         />
@@ -33,26 +33,26 @@ function MessageBubble({ msg }: { msg: ChatMessage }) {
       {/* Avatar */}
       <div className="w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center"
         style={{
-          background: isUser ? 'rgba(0,229,255,0.15)' : 'rgba(124,58,237,0.2)',
-          border: `1px solid ${isUser ? 'rgba(0,229,255,0.4)' : 'rgba(124,58,237,0.4)'}`,
+          background: isUser ? 'rgba(6,182,212,0.15)' : 'rgba(139,92,246,0.15)',
+          border: `1px solid ${isUser ? 'rgba(6,182,212,0.35)' : 'rgba(139,92,246,0.35)'}`,
         }}>
-        {isUser ? <User size={14} style={{ color: '#00e5ff' }} /> : <Bot size={14} style={{ color: '#a855f7' }} />}
+        {isUser ? <User size={14} style={{ color: '#06b6d4' }} /> : <Bot size={14} style={{ color: '#8b5cf6' }} />}
       </div>
 
       {/* Bubble */}
       <div className="max-w-[72%]">
-        <div className="px-3 py-2 rounded-2xl text-sm leading-relaxed"
+        <div className="px-3 py-2 rounded-2xl text-sm leading-relaxed backdrop-blur-sm"
           style={{
-            background: isUser ? 'rgba(0,229,255,0.1)' : 'rgba(124,58,237,0.15)',
-            border: `1px solid ${isUser ? 'rgba(0,229,255,0.25)' : 'rgba(124,58,237,0.3)'}`,
-            color: '#e5e7eb',
+            background: isUser ? 'rgba(6,182,212,0.12)' : 'rgba(139,92,246,0.12)',
+            border: `1px solid ${isUser ? 'rgba(6,182,212,0.25)' : 'rgba(139,92,246,0.25)'}`,
+            color: '#f1f5f9',
             borderBottomRightRadius: isUser ? 4 : undefined,
             borderBottomLeftRadius: !isUser ? 4 : undefined,
           }}>
           {msg.content}
         </div>
         <div className={`text-[10px] mt-1 ${isUser ? 'text-right' : 'text-left'}`}
-          style={{ color: '#475569' }}>
+          style={{ color: '#64748b' }}>
           {time}
         </div>
       </div>
@@ -133,15 +133,15 @@ export default function ChatPanel() {
       style={{ borderRight: '1px solid rgba(124,58,237,0.2)' }}>
 
       {/* Chat header */}
-      <div className="flex items-center justify-between px-4 py-2.5 flex-shrink-0"
-        style={{ borderBottom: '1px solid rgba(124,58,237,0.2)', background: 'rgba(5,7,10,0.5)' }}>
+      <div className="flex items-center justify-between px-4 py-3 flex-shrink-0"
+        style={{ borderBottom: '1px solid rgba(139,92,246,0.15)', background: 'rgba(20,30,60,0.3)' }}>
         <div className="flex items-center gap-2">
-          <div className="w-1.5 h-1.5 rounded-full animate-neon-pulse" style={{ background: '#a855f7', boxShadow: '0 0 4px #a855f7' }} />
-          <span className="text-sm font-semibold" style={{ fontFamily: 'Rajdhani, sans-serif', color: '#e5e7eb', letterSpacing: '0.05em' }}>
-            SOHBET
+          <div className="w-2 h-2 rounded-full animate-neon-pulse" style={{ background: '#8b5cf6', boxShadow: '0 0 8px #8b5cf6' }} />
+          <span className="text-xs font-semibold uppercase tracking-wider" style={{ fontFamily: 'Rajdhani, sans-serif', color: '#f1f5f9', letterSpacing: '0.08em' }}>
+            Sohbet
           </span>
         </div>
-        <span className="text-xs" style={{ color: '#475569' }}>{messages.length} mesaj</span>
+        <span className="text-xs" style={{ color: '#64748b' }}>{messages.length} msg</span>
       </div>
 
       {/* Messages */}
@@ -150,15 +150,16 @@ export default function ChatPanel() {
           {messages.length === 0 && (
             <motion.div
               initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-              className="flex flex-col items-center justify-center h-full gap-3 py-16"
-              style={{ color: '#475569' }}>
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center"
-                style={{ background: 'rgba(124,58,237,0.1)', border: '1px dashed rgba(124,58,237,0.3)' }}>
-                <Bot size={28} style={{ color: '#7c3aed' }} />
+              className="flex flex-col items-center justify-center h-full gap-4 py-16"
+              style={{ color: '#64748b' }}>
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center glow-purple"
+                style={{ background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.2)' }}>
+                <Bot size={32} style={{ color: '#8b5cf6' }} />
               </div>
-              <p className="text-sm text-center">
-                Merhaba! Alice ile sohbete başlayın.<br />
-                <span className="text-xs" style={{ color: '#475569' }}>Bir mesaj yazın ve Enter&apos;a basın.</span>
+              <p className="text-sm text-center max-w-xs">
+                <span className="block font-semibold text-base mb-2" style={{ color: '#f1f5f9' }}>Merhaba! 👋</span>
+                Alice ile harika bir sohbet başlayın.<br />
+                <span className="text-xs mt-2 block" style={{ color: '#64748b' }}>Bir mesaj yazıp Enter&apos;a basın</span>
               </p>
             </motion.div>
           )}
@@ -171,11 +172,11 @@ export default function ChatPanel() {
             initial={{ opacity: 0 }} animate={{ opacity: 1 }}
             className="flex items-end gap-2 mb-3">
             <div className="w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center"
-              style={{ background: 'rgba(124,58,237,0.2)', border: '1px solid rgba(124,58,237,0.4)' }}>
-              <Bot size={14} style={{ color: '#a855f7' }} />
+              style={{ background: 'rgba(139,92,246,0.15)', border: '1px solid rgba(139,92,246,0.35)' }}>
+              <Bot size={14} style={{ color: '#8b5cf6' }} />
             </div>
-            <div className="px-3 py-1 rounded-2xl rounded-bl-sm"
-              style={{ background: 'rgba(124,58,237,0.15)', border: '1px solid rgba(124,58,237,0.3)' }}>
+            <div className="px-3 py-1 rounded-2xl rounded-bl-sm backdrop-blur-sm"
+              style={{ background: 'rgba(139,92,246,0.12)', border: '1px solid rgba(139,92,246,0.25)' }}>
               <TypingIndicator />
             </div>
           </motion.div>
@@ -186,8 +187,8 @@ export default function ChatPanel() {
 
       {/* Input */}
       <div className="flex-shrink-0 px-4 pb-4">
-        <div className="flex items-end gap-2 rounded-xl p-1"
-          style={{ background: 'rgba(15,23,42,0.8)', border: '1px solid rgba(124,58,237,0.35)', boxShadow: '0 0 16px rgba(124,58,237,0.1)' }}>
+        <div className="flex items-end gap-2 rounded-2xl p-1 backdrop-blur-sm"
+          style={{ background: 'rgba(26,40,84,0.5)', border: '1px solid rgba(139,92,246,0.2)', boxShadow: '0 0 20px rgba(139,92,246,0.08)' }}>
           <textarea
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
@@ -196,26 +197,26 @@ export default function ChatPanel() {
             onCompositionEnd={() => setIsComposing(false)}
             placeholder="Alice'e mesaj yaz..."
             rows={1}
-            className="flex-1 resize-none bg-transparent outline-none px-3 py-2.5 text-sm"
-            style={{ color: '#e5e7eb', lineHeight: 1.5, maxHeight: 120, minHeight: 42, fontFamily: 'Inter, sans-serif' }}
+            className="flex-1 resize-none bg-transparent outline-none px-4 py-2.5 text-sm placeholder-gray-600"
+            style={{ color: '#f1f5f9', lineHeight: 1.5, maxHeight: 120, minHeight: 44, fontFamily: 'Inter, sans-serif' }}
           />
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.92 }}
             onClick={sendMessage}
             disabled={!inputText.trim() || isStreaming}
             className="flex-shrink-0 w-9 h-9 rounded-lg flex items-center justify-center cursor-pointer transition-all mr-1 mb-1"
             style={{
-              background: inputText.trim() && !isStreaming ? 'linear-gradient(135deg, #7c3aed, #00e5ff)' : 'rgba(124,58,237,0.1)',
-              border: '1px solid rgba(124,58,237,0.3)',
-              opacity: !inputText.trim() || isStreaming ? 0.5 : 1,
-              boxShadow: inputText.trim() && !isStreaming ? '0 0 12px rgba(124,58,237,0.4)' : 'none',
+              background: inputText.trim() && !isStreaming ? 'linear-gradient(135deg, #8b5cf6, #06b6d4)' : 'rgba(139,92,246,0.08)',
+              border: '1px solid rgba(139,92,246,0.25)',
+              opacity: !inputText.trim() || isStreaming ? 0.4 : 1,
+              boxShadow: inputText.trim() && !isStreaming ? '0 0 16px rgba(139,92,246,0.3)' : 'none',
             }}>
-            <Send size={15} style={{ color: '#fff' }} />
+            <Send size={16} style={{ color: '#fff' }} />
           </motion.button>
         </div>
-        <p className="text-center text-[10px] mt-1" style={{ color: '#2d3748' }}>
-          Enter ile gönder &bull; Shift+Enter yeni satır
+        <p className="text-center text-[10px] mt-2" style={{ color: '#475569' }}>
+          Enter ⏎ gönder &bull; Shift+Enter ↵ satır
         </p>
       </div>
     </div>

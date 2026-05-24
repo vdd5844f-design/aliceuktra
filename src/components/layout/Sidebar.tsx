@@ -23,8 +23,8 @@ export default function Sidebar() {
     <div className="flex flex-col items-center py-4 gap-1 flex-shrink-0"
       style={{
         width: 64,
-        background: 'rgba(5,7,10,0.9)',
-        borderRight: '1px solid rgba(124,58,237,0.2)',
+        background: 'rgba(20,30,60,0.4)',
+        borderRight: '1px solid rgba(139,92,246,0.15)',
       }}>
       {TABS.map((tab) => {
         const active = activeTab === tab.id
@@ -32,23 +32,23 @@ export default function Sidebar() {
         return (
           <motion.button
             key={tab.id}
-            whileHover={{ scale: 1.08, x: 2 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.1, x: 2 }}
+            whileTap={{ scale: 0.92 }}
             onClick={() => setActiveTab(tab.id)}
             title={tab.label}
             className="relative flex flex-col items-center justify-center w-12 h-12 rounded-lg gap-0.5 cursor-pointer transition-all"
             style={{
-              background: active ? 'rgba(124,58,237,0.2)' : 'transparent',
-              border: active ? '1px solid rgba(124,58,237,0.5)' : '1px solid transparent',
-              color: active ? '#a855f7' : '#475569',
-              boxShadow: active ? '0 0 12px rgba(124,58,237,0.3)' : 'none',
+              background: active ? 'rgba(139,92,246,0.15)' : 'transparent',
+              border: active ? '1px solid rgba(139,92,246,0.35)' : '1px solid rgba(139,92,246,0.08)',
+              color: active ? '#8b5cf6' : '#64748b',
+              boxShadow: active ? '0 0 16px rgba(139,92,246,0.2)' : 'none',
             }}>
             {/* Active indicator line */}
             {active && (
               <motion.div
                 layoutId="sidebar-active"
                 className="absolute left-0 top-2 bottom-2 w-0.5 rounded-full"
-                style={{ background: '#a855f7', boxShadow: '0 0 6px #a855f7' }}
+                style={{ background: '#8b5cf6', boxShadow: '0 0 8px #8b5cf6' }}
               />
             )}
             <Icon size={18} />

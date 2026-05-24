@@ -18,9 +18,9 @@ export default function StatusBar() {
   return (
     <div className="flex items-center h-7 px-4 gap-4 flex-shrink-0 text-xs"
       style={{
-        background: 'rgba(5,7,10,0.95)',
-        borderTop: '1px solid rgba(124,58,237,0.2)',
-        color: '#475569',
+        background: 'rgba(10,14,39,0.95)',
+        borderTop: '1px solid rgba(139,92,246,0.15)',
+        color: '#64748b',
         fontFamily: 'Rajdhani, sans-serif',
       }}>
 
@@ -30,30 +30,30 @@ export default function StatusBar() {
           animate={{ opacity: isTalking ? [1, 0.3, 1] : 1 }}
           transition={{ duration: 0.6, repeat: isTalking ? Infinity : 0 }}
           className="w-1.5 h-1.5 rounded-full"
-          style={{ background: isTalking ? '#00ff99' : '#475569', boxShadow: isTalking ? '0 0 4px #00ff99' : 'none' }}
+          style={{ background: isTalking ? '#10b981' : '#64748b', boxShadow: isTalking ? '0 0 6px #10b981' : 'none' }}
         />
-        <span style={{ color: isTalking ? '#00ff99' : '#475569' }}>
+        <span style={{ color: isTalking ? '#10b981' : '#64748b' }}>
           Ses: {isTalking ? 'Konuşuyor' : 'Bekliyor'}
         </span>
       </div>
 
-      <div className="w-px h-3" style={{ background: 'rgba(124,58,237,0.2)' }} />
+      <div className="w-px h-3" style={{ background: 'rgba(139,92,246,0.15)' }} />
 
       {/* Connection */}
       <div className="flex items-center gap-1.5">
         <div className="w-1.5 h-1.5 rounded-full"
           style={{
-            background: connectionStatus === 'connected' ? '#00ff99' : connectionStatus === 'disconnected' ? '#ff4d6d' : '#f59e0b',
-            boxShadow: connectionStatus === 'connected' ? '0 0 4px #00ff99' : 'none',
+            background: connectionStatus === 'connected' ? '#10b981' : connectionStatus === 'disconnected' ? '#ec4899' : '#f59e0b',
+            boxShadow: connectionStatus === 'connected' ? '0 0 6px #10b981' : 'none',
           }} />
         <span>{settings.provider} / {settings.model}</span>
       </div>
 
-      <div className="w-px h-3" style={{ background: 'rgba(124,58,237,0.2)' }} />
+      <div className="w-px h-3" style={{ background: 'rgba(139,92,246,0.15)' }} />
 
       {/* FPS */}
       <div className="flex items-center gap-1">
-        <span style={{ color: '#a855f7' }}>FPS:</span>
+        <span style={{ color: '#8b5cf6' }}>FPS:</span>
         <span>{fps}</span>
       </div>
 
@@ -62,8 +62,8 @@ export default function StatusBar() {
 
       {/* Clock */}
       <div className="flex items-center gap-2">
-        <span style={{ color: '#94a3b8' }}>{dateStr}</span>
-        <span style={{ color: '#00e5ff', textShadow: '0 0 6px rgba(0,229,255,0.6)' }}>{timeStr}</span>
+        <span style={{ color: '#64748b' }}>{dateStr}</span>
+        <span style={{ color: '#06b6d4', textShadow: '0 0 8px rgba(6,182,212,0.4)' }}>{timeStr}</span>
       </div>
     </div>
   )

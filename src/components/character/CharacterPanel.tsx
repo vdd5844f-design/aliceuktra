@@ -71,8 +71,8 @@ export default function CharacterPanel() {
     <div className="flex flex-col flex-shrink-0 overflow-hidden"
       style={{
         width: 300,
-        background: 'rgba(5,7,10,0.6)',
-        borderRight: '1px solid rgba(124,58,237,0.2)',
+        background: 'rgba(20,30,60,0.4)',
+        borderRight: '1px solid rgba(139,92,246,0.15)',
       }}>
 
       {/* Character viewport */}
@@ -84,19 +84,19 @@ export default function CharacterPanel() {
             animate={{ rotate: 360 }}
             transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
             className="absolute inset-0 rounded-full border animate-hologram"
-            style={{ borderColor: 'rgba(124,58,237,0.3)', transform: 'rotateX(70deg)' }}
+            style={{ borderColor: 'rgba(139,92,246,0.25)', transform: 'rotateX(70deg)' }}
           />
           <motion.div
             animate={{ rotate: -360 }}
             transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
             className="absolute inset-4 rounded-full border"
-            style={{ borderColor: 'rgba(0,229,255,0.25)', transform: 'rotateX(70deg)' }}
+            style={{ borderColor: 'rgba(6,182,212,0.2)', transform: 'rotateX(70deg)' }}
           />
         </div>
 
         {/* Platform glow */}
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-4 rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse, rgba(124,58,237,0.5) 0%, transparent 70%)', filter: 'blur(8px)' }} />
+          style={{ background: 'radial-gradient(ellipse, rgba(139,92,246,0.4) 0%, transparent 70%)', filter: 'blur(8px)' }} />
 
         {/* Character image */}
         <div className="relative z-10 flex items-end justify-center pb-4" style={{ height: '100%', maxHeight: 480 }}>
@@ -107,7 +107,7 @@ export default function CharacterPanel() {
                 src={displayFrame}
                 alt="karakter"
                 className="object-contain animate-float"
-                style={{ maxHeight: 440, maxWidth: 280, imageRendering: 'pixelated', filter: 'drop-shadow(0 0 16px rgba(168,85,247,0.4))' }}
+                style={{ maxHeight: 440, maxWidth: 280, imageRendering: 'pixelated', filter: 'drop-shadow(0 0 20px rgba(139,92,246,0.5))' }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -117,19 +117,18 @@ export default function CharacterPanel() {
               <motion.div
                 key="placeholder"
                 className="flex flex-col items-center justify-center gap-3"
-                style={{ height: 320, width: 200 }}
+                style={{ height: 320, width: 280 }}
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                {/* Placeholder silhouette */}
-                <div className="w-28 h-48 rounded-2xl flex items-center justify-center"
-                  style={{ background: 'rgba(124,58,237,0.08)', border: '1px dashed rgba(124,58,237,0.3)' }}>
-                  <div className="text-center">
-                    <div className="w-12 h-12 rounded-full mx-auto mb-2"
-                      style={{ background: 'rgba(124,58,237,0.15)', border: '1px dashed rgba(124,58,237,0.3)' }} />
-                    <div className="text-xs" style={{ color: '#475569' }}>Varlık yok</div>
-                  </div>
-                </div>
-                <p className="text-xs text-center" style={{ color: '#475569' }}>
-                  assets/alice veya<br />assets/aiko klasörü ekleyin
+                {/* Fallback Alice image */}
+                <img 
+                  src="/alice.jpg" 
+                  alt="Alice" 
+                  className="w-40 h-48 object-cover rounded-2xl glow-purple"
+                  style={{ border: '1px solid rgba(139,92,246,0.3)' }}
+                />
+                <p className="text-xs text-center" style={{ color: '#64748b' }}>
+                  Frame assets yüklenmedi<br />
+                  <span style={{ fontSize: '10px', color: '#475569' }}>assets/ klasörüne ekleyin</span>
                 </p>
               </motion.div>
             )}
@@ -139,7 +138,7 @@ export default function CharacterPanel() {
         {/* Scan line effect */}
         <motion.div
           className="absolute left-0 right-0 h-px pointer-events-none"
-          style={{ background: 'linear-gradient(90deg, transparent, rgba(0,229,255,0.3), transparent)' }}
+          style={{ background: 'linear-gradient(90deg, transparent, rgba(6,182,212,0.25), transparent)' }}
           animate={{ top: ['0%', '100%'] }}
           transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
         />
@@ -155,9 +154,9 @@ export default function CharacterPanel() {
             onClick={() => setEmotion(e)}
             className="text-[10px] px-2 py-0.5 rounded cursor-pointer transition-all"
             style={{
-              background: emotion === e ? 'rgba(124,58,237,0.3)' : 'transparent',
-              border: `1px solid ${emotion === e ? 'rgba(124,58,237,0.6)' : 'rgba(124,58,237,0.15)'}`,
-              color: emotion === e ? '#a855f7' : '#475569',
+              background: emotion === e ? 'rgba(139,92,246,0.2)' : 'transparent',
+              border: `1px solid ${emotion === e ? 'rgba(139,92,246,0.5)' : 'rgba(139,92,246,0.1)'}`,
+              color: emotion === e ? '#8b5cf6' : '#64748b',
               fontFamily: 'Rajdhani, sans-serif',
             }}>
             {EMOTION_LABELS[e]}
@@ -168,18 +167,18 @@ export default function CharacterPanel() {
       {/* Action buttons */}
       <div className="flex gap-2 px-3 pb-3">
         <motion.button
-          whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
+          whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
           onClick={randomOutfit}
-          className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium cursor-pointer"
-          style={{ background: 'rgba(124,58,237,0.15)', border: '1px solid rgba(124,58,237,0.3)', color: '#a855f7', fontFamily: 'Rajdhani, sans-serif' }}>
-          <Shuffle size={13} /> Rastgele Kıyafet
+          className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium cursor-pointer transition-all"
+          style={{ background: 'rgba(139,92,246,0.12)', border: '1px solid rgba(139,92,246,0.25)', color: '#8b5cf6', fontFamily: 'Rajdhani, sans-serif' }}>
+          <Shuffle size={13} /> Kıyafet
         </motion.button>
         <motion.button
-          whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
+          whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
           onClick={randomEmotion}
-          className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium cursor-pointer"
-          style={{ background: 'rgba(0,229,255,0.1)', border: '1px solid rgba(0,229,255,0.25)', color: '#00e5ff', fontFamily: 'Rajdhani, sans-serif' }}>
-          <Shuffle size={13} /> Rastgele Duygu
+          className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium cursor-pointer transition-all"
+          style={{ background: 'rgba(6,182,212,0.12)', border: '1px solid rgba(6,182,212,0.25)', color: '#06b6d4', fontFamily: 'Rajdhani, sans-serif' }}>
+          <Shuffle size={13} /> Duygu
         </motion.button>
       </div>
     </div>
