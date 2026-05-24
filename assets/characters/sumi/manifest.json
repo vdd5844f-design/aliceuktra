@@ -1,9 +1,0 @@
-{
-  "name": "Sumi",
-  "id": "sumi",
-  "version": "2.0",
-  "description": "Character: sumi",
-  "outfits": {
-    "sumi_base_pack": "outfits/sumi_base_pack"
-  }
-}
