@@ -1,38 +1,47 @@
-export type Emotion = 'idle' | 'talk' | 'happy' | 'angry' | 'sleep' | 'move'
-export type Provider = 'ollama' | 'openai' | 'anthropic' | 'gemini' | 'openrouter' | 'openai-compatible'
-export type SidebarTab = 'sohbet' | 'karakter' | 'kiyafet' | 'duygu' | 'ses' | 'hafiza' | 'gelistirici'
+export type Emotion = 'idle' | 'happy' | 'talk' | 'angry' | 'sad' | 'sleep' | 'fear' | 'move'
+export type Provider = 'ollama' | 'openai' | 'anthropic' | 'gemini' | 'openrouter' | 'lmstudio'
+export type SidebarTab = 'sohbet' | 'karakter' | 'kiyafet' | 'ses' | 'hafiza' | 'ayarlar' | 'gelistirici'
+
+export interface SpriteEntry {
+  path: string
+  fileUrl: string
+  filename: string
+}
+
+export interface ScannedOutfit {
+  id: string
+  name: string
+  packName: string
+  characterId: string
+  isCat: boolean
+  mode: 'static' | 'frames'
+  sprites: Record<Emotion, SpriteEntry[]>
+  previewUrl: string | null
+  totalPng: number
+  emotions: Emotion[]
+}
+
+export interface ScannedCharacter {
+  id: string
+  name: string
+  outfits: ScannedOutfit[]
+  totalPng: number
+  previewUrl: string | null
+}
+
+export interface ScanResult {
+  assetsRoot: string
+  characters: ScannedCharacter[]
+  totalPng: number
+  errors: string[]
+}
 
 export interface ChatMessage {
   id: string
   role: 'user' | 'assistant' | 'system'
   content: string
+  emotion?: Emotion
   timestamp: number
-}
-
-export interface AssetFrame {
-  path: string
-  name: string
-}
-
-export interface CharacterOutfit {
-  name: string
-  emotions: Record<string, AssetFrame[]>
-}
-
-export interface CharacterAsset {
-  name: string
-  mode: 'frame_animation' | 'static_expression'
-  outfits: Record<string, CharacterOutfit>
-  rootPath: string
-}
-
-export interface VoiceSettings {
-  engine: string
-  voiceName: string
-  rate: string
-  pitch: string
-  volume: string
-  autoSpeak: boolean
 }
 
 export interface AppSettings {
@@ -40,51 +49,45 @@ export interface AppSettings {
   baseUrl: string
   apiKey: string
   model: string
+  systemPrompt: string
   temperature: number
   maxTokens: number
-  persona: string
-  voice: VoiceSettings
-  window: { alwaysOnTop: boolean }
-  assetsPath: string
+  voice: string
+  voiceEnabled: boolean
+  alwaysOnTop: boolean
+  assetsRoot: string
 }
 
-export interface AliceAPI {
-  window: {
-    minimize(): void
-    maximize(): void
-    close(): void
-  }
-  ai: {
-    chat(payload: unknown): Promise<{ success: boolean; content: string }>
-    test(payload: unknown): Promise<{ success: boolean; error?: string }>
-  }
-  assets: {
-    scan(path?: string): Promise<{ success: boolean; characters: Record<string, CharacterAsset>; error?: string }>
-    getFrame(path: string): Promise<{ success: boolean; data: string | null }>
-  }
-  voice: {
-    speak(payload: { text: string; voice: string; rate: string; pitch: string; volume: string }): Promise<{ success: boolean; error?: string }>
-    stop(): void
-    onDone(cb: () => void): void
-    onError(cb: (err: string) => void): void
-  }
-  settings: {
-    get(): Promise<AppSettings>
-    set(data: Partial<AppSettings>): Promise<AppSettings>
-  }
-  pet: {
-    open(): void
-    close(): void
-    move(x: number, y: number): void
-    alwaysOnTop(val: boolean): void
-  }
-  studio: {
-    open(): void
-  }
+export const DEFAULT_SETTINGS: AppSettings = {
+  provider: 'ollama',
+  baseUrl: 'http://localhost:11434',
+  apiKey: '',
+  model: 'gemma3:4b',
+  systemPrompt: 'Sen Alice, sevimli ve zeki bir yapay zeka arkadaşısın. Türkçe konuşuyorsun.',
+  temperature: 0.8,
+  maxTokens: 1024,
+  voice: 'tr-TR-EmelNeural',
+  voiceEnabled: false,
+  alwaysOnTop: false,
+  assetsRoot: '',
 }
 
-declare global {
-  interface Window {
-    alice: AliceAPI
-  }
+export const EMOTION_LABELS: Record<Emotion, string> = {
+  idle: 'Boşta',
+  happy: 'Mutlu',
+  talk: 'Konuşuyor',
+  angry: 'Kızgın',
+  sad: 'Üzgün',
+  sleep: 'Uyku',
+  fear: 'Korku',
+  move: 'Hareket',
 }
+
+export const PROVIDERS: { value: Provider; label: string }[] = [
+  { value: 'ollama', label: 'Ollama (Yerel)' },
+  { value: 'lmstudio', label: 'LM Studio' },
+  { value: 'openai', label: 'OpenAI' },
+  { value: 'anthropic', label: 'Anthropic' },
+  { value: 'gemini', label: 'Google Gemini' },
+  { value: 'openrouter', label: 'OpenRouter' },
+]

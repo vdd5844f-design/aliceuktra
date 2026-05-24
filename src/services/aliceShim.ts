@@ -1,98 +1,107 @@
-/**
- * Browser shim for window.alice — used when running outside Electron (Vite dev preview).
- * Provides realistic mock data so the UI can be fully previewed in a browser.
- */
+// Browser preview shim — mocks window.alice when Electron preload is absent
 
-import type { AliceAPI, AppSettings, CharacterAsset } from '@/types'
+import type { ScanResult, ScannedCharacter, ScannedOutfit, SpriteEntry, Emotion } from '../types'
 
-const DEFAULT_SETTINGS: AppSettings = {
-  provider: 'ollama',
-  baseUrl: 'http://127.0.0.1:11434',
-  apiKey: '',
-  model: 'qwen2.5:3b',
-  temperature: 0.7,
-  maxTokens: 512,
-  persona: 'Sen Alice AI Ultra adlı masaüstü yardımcı karakterisin.\nSadece Türkçe konuş. Kısa ve net cevap ver.',
-  voice: { engine: 'edge-tts', voiceName: 'tr-TR-EmelNeural', rate: '-10%', pitch: '+6Hz', volume: '+8%', autoSpeak: false },
-  window: { alwaysOnTop: false },
-  assetsPath: '',
+const MOCK_EMOTIONS: Emotion[] = ['idle', 'happy', 'talk', 'angry', 'sad', 'sleep']
+
+function mockOutfit(id: string, name: string, charId: string): ScannedOutfit {
+  const sprites: Record<Emotion, SpriteEntry[]> = {
+    idle: [], happy: [], talk: [], angry: [], sad: [], sleep: [], fear: [], move: [],
+  }
+  for (const e of MOCK_EMOTIONS) {
+    sprites[e] = [{ path: '', fileUrl: '/alice.jpg', filename: 'mock.png' }]
+  }
+  return {
+    id, name, packName: 'demo', characterId: charId,
+    isCat: false, mode: 'static', sprites,
+    previewUrl: '/alice.jpg', totalPng: 6,
+    emotions: MOCK_EMOTIONS,
+  }
 }
 
-let storedSettings = { ...DEFAULT_SETTINGS }
+function mockCharacter(id: string, name: string): ScannedCharacter {
+  return {
+    id, name,
+    outfits: [
+      mockOutfit('casual', 'Günlük', id),
+      mockOutfit('uniform', 'Üniforma', id),
+    ],
+    totalPng: 12,
+    previewUrl: '/alice.jpg',
+  }
+}
 
-const MOCK_CHARACTERS: Record<string, CharacterAsset> = {
-  alice: {
-    name: 'Alice',
-    mode: 'frame_animation',
-    rootPath: 'assets/alice',
-    outfits: {
-      default: {
-        name: 'Varsayılan',
-        emotions: {
-          idle: [], talk: [], happy: [], angry: [], sleep: [], move: [],
-        },
+const MOCK_CHARS: ScannedCharacter[] = [
+  mockCharacter('alice', 'Alice'),
+  mockCharacter('aiko', 'Aiko'),
+  mockCharacter('drift', 'Drift'),
+  mockCharacter('eve', 'Eve'),
+  mockCharacter('ichiko', 'Ichiko'),
+  mockCharacter('miho', 'Miho'),
+  mockCharacter('natsumi', 'Natsumi'),
+  mockCharacter('sumi', 'Sumi'),
+]
+
+const MOCK_SCAN: ScanResult = {
+  assetsRoot: './assets (tarayici)',
+  characters: MOCK_CHARS,
+  totalPng: 96,
+  errors: [],
+}
+
+let streamCb: ((token: string) => void) | null = null
+const MOCK_REPLY = 'Merhaba! Ben Alice, yapay zeka arkadaşınım. Size nasıl yardımcı olabilirim?'
+
+if (typeof window !== 'undefined' && !(window as unknown as Record<string, unknown>)['alice']) {
+  ;(window as unknown as Record<string, unknown>)['alice'] = {
+    assets: {
+      scan: async () => MOCK_SCAN,
+      getCharacters: async () => MOCK_CHARS,
+      getOutfits: async (charId: string) => MOCK_CHARS.find(c => c.id === charId)?.outfits ?? [],
+      getSprite: async (charId: string, outfitId: string, emotion: Emotion): Promise<SpriteEntry | null> => {
+        const char = MOCK_CHARS.find(c => c.id === charId)
+        const outfit = char?.outfits.find(o => o.id === outfitId)
+        return outfit?.sprites[emotion]?.[0] ?? null
+      },
+      reload: async () => MOCK_SCAN,
+      setAssetsRoot: async () => MOCK_SCAN,
+      getRoot: async () => './assets',
+    },
+    ai: {
+      chat: async () => {
+        let i = 0
+        const words = MOCK_REPLY.split(' ')
+        const interval = setInterval(() => {
+          if (i < words.length) {
+            streamCb?.((i === 0 ? '' : ' ') + words[i++])
+          } else {
+            clearInterval(interval)
+          }
+        }, 80)
+        return { done: true }
+      },
+      stop: async () => {},
+      test: async () => ({ success: true }),
+      onToken: (cb: (token: string) => void) => {
+        streamCb = cb
+        return () => { streamCb = null }
       },
     },
-  },
-}
-
-export const aliceShim: AliceAPI = {
-  window: {
-    minimize: () => console.log('[alice-shim] window.minimize'),
-    maximize: () => console.log('[alice-shim] window.maximize'),
-    close: () => console.log('[alice-shim] window.close'),
-  },
-  ai: {
-    chat: async (payload: unknown) => {
-      const p = payload as { messages?: Array<{ content: string }> }
-      const last = p.messages?.slice(-1)[0]?.content || ''
-      await new Promise((r) => setTimeout(r, 900))
-      const responses = [
-        'Merhaba! Sana nasıl yardımcı olabilirim?',
-        'Evet, anlıyorum. Devam edebiliriz.',
-        'Bu konuda size yardımcı olabilirim.',
-        'Tabii ki, hemen bakıyorum.',
-        'İlginç bir soru. İşte cevabım:',
-      ]
-      return { success: true, content: responses[Math.floor(Math.random() * responses.length)] + ' ' + last.slice(0, 20) }
+    voice: {
+      speak: async () => {},
+      stop: async () => {},
+      listVoices: async () => [],
     },
-    test: async () => {
-      await new Promise((r) => setTimeout(r, 600))
-      return { success: true }
+    settings: {
+      get: async () => ({}),
+      set: async () => {},
     },
-  },
-  assets: {
-    scan: async () => ({ success: true, characters: MOCK_CHARACTERS }),
-    getFrame: async () => ({ success: false, data: null }),
-  },
-  voice: {
-    speak: async () => {
-      await new Promise((r) => setTimeout(r, 1200))
-      return { success: true }
+    window: {
+      minimize: async () => {},
+      maximize: async () => {},
+      close: async () => {},
+      setPetMode: async () => {},
+      setAlwaysOnTop: async () => {},
     },
-    stop: () => {},
-    onDone: (cb) => { setTimeout(cb, 1500) },
-    onError: () => {},
-  },
-  settings: {
-    get: async () => ({ ...storedSettings }),
-    set: async (data) => {
-      storedSettings = { ...storedSettings, ...data } as AppSettings
-      return storedSettings
-    },
-  },
-  pet: {
-    open: () => console.log('[alice-shim] pet.open'),
-    close: () => console.log('[alice-shim] pet.close'),
-    move: (x, y) => console.log(`[alice-shim] pet.move ${x},${y}`),
-    alwaysOnTop: (v) => console.log(`[alice-shim] pet.alwaysOnTop ${v}`),
-  },
-  studio: {
-    open: () => console.log('[alice-shim] studio.open'),
-  },
-}
-
-// Install shim if not in Electron
-if (typeof window !== 'undefined' && !(window as unknown as { alice?: AliceAPI }).alice) {
-  ;(window as unknown as { alice: AliceAPI }).alice = aliceShim
+  }
 }

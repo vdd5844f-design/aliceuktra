@@ -1,109 +1,129 @@
 import { create } from 'zustand'
-import type { Emotion, SidebarTab, ChatMessage, CharacterAsset, AppSettings, Provider } from '@/types'
-
-const DEFAULT_SETTINGS: AppSettings = {
-  provider: 'ollama',
-  baseUrl: 'http://127.0.0.1:11434',
-  apiKey: '',
-  model: 'qwen2.5:3b',
-  temperature: 0.7,
-  maxTokens: 512,
-  persona: 'Sen Alice AI Ultra adlı masaüstü yardımcı karakterisin.\n\nKurallar:\n- Sadece Türkçe konuş.\n- Kısa, net ve profesyonel cevap ver.\n- Bilmediğin şeyi uydurma.\n- Gereksiz emoji kullanma.\n- Cevaplarını 1-3 cümle ile sınırla.',
-  voice: {
-    engine: 'edge-tts',
-    voiceName: 'tr-TR-EmelNeural',
-    rate: '-10%',
-    pitch: '+6Hz',
-    volume: '+8%',
-    autoSpeak: false,
-  },
-  window: { alwaysOnTop: false },
-  assetsPath: '',
-}
+import type {
+  AppSettings, ChatMessage, Emotion, ScannedCharacter, ScannedOutfit,
+  ScanResult, SidebarTab, SpriteEntry,
+} from '../types'
+import { DEFAULT_SETTINGS } from '../types'
 
 interface AppState {
-  // UI
+  // ── UI
   activeTab: SidebarTab
-  petModeOpen: boolean
-  connectionStatus: 'unknown' | 'connected' | 'disconnected' | 'testing'
-  isLoading: boolean
-  fps: number
+  setActiveTab: (t: SidebarTab) => void
+  petMode: boolean
+  setPetMode: (v: boolean) => void
 
-  // Character
-  activeCharacter: string
-  activeOutfit: string
-  emotion: Emotion
-  isTalking: boolean
-  characters: Record<string, CharacterAsset>
-  currentFrame: string
-
-  // Chat
+  // ── Chat
   messages: ChatMessage[]
-  isStreaming: boolean
-  inputText: string
-
-  // Settings
-  settings: AppSettings
-
-  // Actions
-  setActiveTab: (tab: SidebarTab) => void
-  setPetMode: (open: boolean) => void
-  setConnectionStatus: (s: AppState['connectionStatus']) => void
-  setIsLoading: (v: boolean) => void
-
-  setActiveCharacter: (name: string) => void
-  setActiveOutfit: (name: string) => void
-  setEmotion: (e: Emotion) => void
-  setIsTalking: (v: boolean) => void
-  setCharacters: (chars: Record<string, CharacterAsset>) => void
-  setCurrentFrame: (url: string) => void
-
-  addMessage: (msg: ChatMessage) => void
+  addMessage: (m: ChatMessage) => void
   clearMessages: () => void
+  isStreaming: boolean
   setIsStreaming: (v: boolean) => void
-  setInputText: (t: string) => void
+  isTalking: boolean
+  setIsTalking: (v: boolean) => void
+  appendToLastAssistant: (token: string) => void
 
-  setSettings: (s: Partial<AppSettings>) => void
-  setSetting: <K extends keyof AppSettings>(key: K, value: AppSettings[K]) => void
+  // ── Settings
+  settings: AppSettings
+  setSettings: (partial: Partial<AppSettings>) => void
+
+  // ── Assets
+  scanResult: ScanResult | null
+  setScanResult: (r: ScanResult) => void
+  characters: ScannedCharacter[]
+  setCharacters: (c: ScannedCharacter[]) => void
+
+  // ── Active character / outfit
+  activeCharacterId: string
+  setActiveCharacterId: (id: string) => void
+  activeOutfitId: string
+  setActiveOutfitId: (id: string) => void
+  activeEmotion: Emotion
+  setActiveEmotion: (e: Emotion) => void
+
+  // ── Current sprite (resolved by CharacterPanel)
+  currentSprite: SpriteEntry | null
+  setCurrentSprite: (s: SpriteEntry | null) => void
+
+  // ── Connection
+  connectionStatus: 'idle' | 'testing' | 'connected' | 'disconnected'
+  setConnectionStatus: (s: 'idle' | 'testing' | 'connected' | 'disconnected') => void
+
+  // ── Helpers
+  activeCharacter: ScannedCharacter | undefined
+  activeOutfit: ScannedOutfit | undefined
 }
 
-export const useAppStore = create<AppState>((set) => ({
+export const useAppStore = create<AppState>((set, get) => ({
+  // ── UI
   activeTab: 'sohbet',
-  petModeOpen: false,
-  connectionStatus: 'unknown',
-  isLoading: false,
-  fps: 60,
+  setActiveTab: (activeTab) => set({ activeTab }),
+  petMode: false,
+  setPetMode: (petMode) => set({ petMode }),
 
-  activeCharacter: 'alice',
-  activeOutfit: 'default',
-  emotion: 'idle',
-  isTalking: false,
-  characters: {},
-  currentFrame: '',
-
+  // ── Chat
   messages: [],
-  isStreaming: false,
-  inputText: '',
-
-  settings: DEFAULT_SETTINGS,
-
-  setActiveTab: (tab) => set({ activeTab: tab }),
-  setPetMode: (open) => set({ petModeOpen: open }),
-  setConnectionStatus: (s) => set({ connectionStatus: s }),
-  setIsLoading: (v) => set({ isLoading: v }),
-
-  setActiveCharacter: (name) => set({ activeCharacter: name, activeOutfit: 'default' }),
-  setActiveOutfit: (name) => set({ activeOutfit: name }),
-  setEmotion: (e) => set({ emotion: e }),
-  setIsTalking: (v) => set({ isTalking: v }),
-  setCharacters: (chars) => set({ characters: chars }),
-  setCurrentFrame: (url) => set({ currentFrame: url }),
-
-  addMessage: (msg) => set((s) => ({ messages: [...s.messages, msg] })),
+  addMessage: (m) => set((s) => ({ messages: [...s.messages, m] })),
   clearMessages: () => set({ messages: [] }),
-  setIsStreaming: (v) => set({ isStreaming: v }),
-  setInputText: (t) => set({ inputText: t }),
+  isStreaming: false,
+  setIsStreaming: (isStreaming) => set({ isStreaming }),
+  isTalking: false,
+  setIsTalking: (isTalking) => set({ isTalking }),
+  appendToLastAssistant: (token) =>
+    set((s) => {
+      const msgs = [...s.messages]
+      const last = msgs[msgs.length - 1]
+      if (last?.role === 'assistant') {
+        msgs[msgs.length - 1] = { ...last, content: last.content + token }
+      } else {
+        msgs.push({ id: Date.now().toString(), role: 'assistant', content: token, timestamp: Date.now() })
+      }
+      return { messages: msgs }
+    }),
 
-  setSettings: (s) => set((state) => ({ settings: { ...state.settings, ...s } })),
-  setSetting: (key, value) => set((state) => ({ settings: { ...state.settings, [key]: value } })),
+  // ── Settings
+  settings: DEFAULT_SETTINGS,
+  setSettings: (partial) => set((s) => ({ settings: { ...s.settings, ...partial } })),
+
+  // ── Assets
+  scanResult: null,
+  setScanResult: (scanResult) => {
+    const characters = scanResult.characters
+    const firstChar = characters[0]
+    const firstOutfit = firstChar?.outfits[0]
+    set({
+      scanResult,
+      characters,
+      activeCharacterId: get().activeCharacterId || firstChar?.id || '',
+      activeOutfitId: get().activeOutfitId || firstOutfit?.id || '',
+    })
+  },
+  characters: [],
+  setCharacters: (characters) => set({ characters }),
+
+  // ── Active character / outfit
+  activeCharacterId: '',
+  setActiveCharacterId: (activeCharacterId) => {
+    const char = get().characters.find(c => c.id === activeCharacterId)
+    const firstOutfit = char?.outfits[0]
+    set({ activeCharacterId, activeOutfitId: firstOutfit?.id || '' })
+  },
+  activeOutfitId: '',
+  setActiveOutfitId: (activeOutfitId) => set({ activeOutfitId }),
+  activeEmotion: 'idle',
+  setActiveEmotion: (activeEmotion) => set({ activeEmotion }),
+
+  // ── Current sprite
+  currentSprite: null,
+  setCurrentSprite: (currentSprite) => set({ currentSprite }),
+
+  // ── Connection
+  connectionStatus: 'idle',
+  setConnectionStatus: (connectionStatus) => set({ connectionStatus }),
+
+  // ── Computed helpers (getters, not state)
+  get activeCharacter() { return get().characters.find(c => c.id === get().activeCharacterId) },
+  get activeOutfit() {
+    const char = get().characters.find(c => c.id === get().activeCharacterId)
+    return char?.outfits.find(o => o.id === get().activeOutfitId)
+  },
 }))

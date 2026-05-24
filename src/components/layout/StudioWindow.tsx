@@ -1,46 +1,41 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React, { useEffect } from 'react'
 import Toolbar from './Toolbar'
 import Sidebar from './Sidebar'
-import CharacterPanel from '@/components/character/CharacterPanel'
-import ChatPanel from '@/components/chat/ChatPanel'
-import RightPanel from '@/components/settings/RightPanel'
 import StatusBar from './StatusBar'
-import { useAppStore } from '@/stores/appStore'
+import CharacterPanel from '../character/CharacterPanel'
+import ChatPanel from '../chat/ChatPanel'
+import RightPanel from '../settings/RightPanel'
+import { useAppStore } from '../../stores/appStore'
+
+const alice = () => (window as unknown as Record<string, unknown>)['alice'] as Record<string, Record<string, (...args: unknown[]) => unknown>>
 
 export default function StudioWindow() {
-  const activeTab = useAppStore((s) => s.activeTab)
+  const { activeTab, setScanResult } = useAppStore()
+  const showRight = activeTab !== 'sohbet'
+
+  // Scan assets on mount
+  useEffect(() => {
+    const run = async () => {
+      try {
+        const result = await alice().assets.scan() as Parameters<typeof setScanResult>[0]
+        setScanResult(result)
+      } catch (e) {
+        console.log('[v0] Asset scan failed:', e)
+      }
+    }
+    run()
+  }, [setScanResult])
 
   return (
-    <div className="flex flex-col h-full w-full overflow-hidden" style={{ background: '#05070a' }}>
-      {/* Cyber grid background */}
-      <div className="absolute inset-0 cyber-grid pointer-events-none opacity-60" />
-
-      {/* Ambient glow blobs */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%)', filter: 'blur(40px)' }} />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(0,229,255,0.06) 0%, transparent 70%)', filter: 'blur(40px)' }} />
-
-      {/* Toolbar */}
+    <div className="flex flex-col w-full h-screen overflow-hidden"
+      style={{ background: '#0a0e27' }}>
       <Toolbar />
-
-      {/* Main content */}
-      <div className="flex flex-1 overflow-hidden relative z-10">
-        {/* Left sidebar nav */}
+      <div className="flex flex-1 overflow-hidden">
         <Sidebar />
-
-        {/* Character panel */}
         <CharacterPanel />
-
-        {/* Center chat panel */}
         <ChatPanel />
-
-        {/* Right control panel */}
-        <RightPanel />
+        {showRight && <RightPanel />}
       </div>
-
-      {/* Status bar */}
       <StatusBar />
     </div>
   )

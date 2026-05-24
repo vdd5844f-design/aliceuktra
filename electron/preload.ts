@@ -1,52 +1,40 @@
 import { contextBridge, ipcRenderer } from 'electron'
 
 contextBridge.exposeInMainWorld('alice', {
-  // Window controls
-  window: {
-    minimize: () => ipcRenderer.send('window:minimize'),
-    maximize: () => ipcRenderer.send('window:maximize'),
-    close: () => ipcRenderer.send('window:close'),
-  },
-
-  // AI chat
-  ai: {
-    chat: (payload: { provider: string; baseUrl: string; apiKey: string; model: string; temperature: number; maxTokens: number; messages: Array<{ role: string; content: string }> }) =>
-      ipcRenderer.invoke('ai:chat', payload),
-    test: (payload: { provider: string; baseUrl: string; apiKey: string; model: string }) =>
-      ipcRenderer.invoke('ai:test', payload),
-  },
-
-  // Asset scanning
   assets: {
-    scan: (assetsPath?: string) => ipcRenderer.invoke('assets:scan', assetsPath),
-    getFrame: (framePath: string) => ipcRenderer.invoke('assets:getFrame', framePath),
+    scan: () => ipcRenderer.invoke('assets:scan'),
+    getCharacters: () => ipcRenderer.invoke('assets:getCharacters'),
+    getOutfits: (characterId: string) => ipcRenderer.invoke('assets:getOutfits', characterId),
+    getSprite: (characterId: string, outfitId: string, emotion: string) =>
+      ipcRenderer.invoke('assets:getSprite', characterId, outfitId, emotion),
+    reload: () => ipcRenderer.invoke('assets:reload'),
+    setAssetsRoot: (p: string) => ipcRenderer.invoke('assets:setAssetsRoot', p),
+    getRoot: () => ipcRenderer.invoke('assets:getRoot'),
   },
-
-  // Voice / Edge TTS
+  ai: {
+    chat: (payload: unknown) => ipcRenderer.invoke('ai:chat', payload),
+    stop: () => ipcRenderer.invoke('ai:stop'),
+    test: (opts: unknown) => ipcRenderer.invoke('ai:test', opts),
+    onToken: (cb: (token: string) => void) => {
+      const handler = (_: unknown, t: string) => cb(t)
+      ipcRenderer.on('ai:token', handler)
+      return () => ipcRenderer.removeListener('ai:token', handler)
+    },
+  },
   voice: {
-    speak: (payload: { text: string; voice: string; rate: string; pitch: string; volume: string }) =>
-      ipcRenderer.invoke('voice:speak', payload),
-    stop: () => ipcRenderer.send('voice:stop'),
-    onDone: (cb: () => void) => ipcRenderer.on('voice:done', cb),
-    onError: (cb: (err: string) => void) => ipcRenderer.on('voice:error', (_e, err) => cb(err)),
+    speak: (text: string, voice: string) => ipcRenderer.invoke('voice:speak', text, voice),
+    stop: () => ipcRenderer.invoke('voice:stop'),
+    listVoices: () => ipcRenderer.invoke('voice:listVoices'),
   },
-
-  // Settings
   settings: {
     get: () => ipcRenderer.invoke('settings:get'),
-    set: (data: Record<string, unknown>) => ipcRenderer.invoke('settings:set', data),
+    set: (data: unknown) => ipcRenderer.invoke('settings:set', data),
   },
-
-  // Pet window
-  pet: {
-    open: () => ipcRenderer.send('pet:open'),
-    close: () => ipcRenderer.send('pet:close'),
-    move: (x: number, y: number) => ipcRenderer.send('pet:move', { x, y }),
-    alwaysOnTop: (val: boolean) => ipcRenderer.send('pet:alwaysOnTop', val),
-  },
-
-  // Studio window
-  studio: {
-    open: () => ipcRenderer.send('studio:open'),
+  window: {
+    minimize: () => ipcRenderer.invoke('window:minimize'),
+    maximize: () => ipcRenderer.invoke('window:maximize'),
+    close: () => ipcRenderer.invoke('window:close'),
+    setPetMode: (enabled: boolean) => ipcRenderer.invoke('window:setPetMode', enabled),
+    setAlwaysOnTop: (val: boolean) => ipcRenderer.invoke('window:setAlwaysOnTop', val),
   },
 })
