@@ -61,6 +61,19 @@ contextBridge.exposeInMainWorld('alice', {
     setAlwaysOnTop: (val: boolean)      => ipcRenderer.send('pet:alwaysOnTop', val),
   },
 
+  // ── Model / VRM IPC
+  model: {
+    save:           (buffer: ArrayBuffer, meta: unknown) => ipcRenderer.invoke('model:save', buffer, meta),
+    list:           ()                                   => ipcRenderer.invoke('model:list'),
+    readMeta:       (id: string)                         => ipcRenderer.invoke('model:readMeta', id),
+    delete:         (id: string)                         => ipcRenderer.invoke('model:delete', id),
+    setActive:      (id: string)                         => ipcRenderer.invoke('model:setActive', id),
+    getActive:      ()                                   => ipcRenderer.invoke('model:getActive'),
+    updateSettings: (id: string, patch: unknown)         => ipcRenderer.invoke('model:updateSettings', id, patch),
+    savePreview:    (id: string, base64: string)         => ipcRenderer.invoke('model:savePreview', id, base64),
+    getFileUrl:     (id: string)                         => ipcRenderer.invoke('model:getFileUrl', id),
+  },
+
   // ── Pet window IPC
   pet: {
     open:  ()                           => ipcRenderer.send('pet:open'),

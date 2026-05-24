@@ -5,6 +5,7 @@ import { setupAiIpc } from './ipc/ai.ipc'
 import { setupAssetsIpc } from './ipc/assets.ipc'
 import { setupVoiceIpc } from './ipc/voice.ipc'
 import { setupSettingsIpc } from './ipc/settings.ipc'
+import { registerModelIpc } from './modelIpc'
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -119,6 +120,7 @@ app.whenReady().then(() => {
   setupAssetsIpc()
   setupVoiceIpc()
   setupSettingsIpc()
+  registerModelIpc()
   createStudioWindow()
 
   app.on('activate', () => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { MessageSquare, User, Shirt, Volume2, Brain, Settings, Code2 } from 'lucide-react'
+import { MessageSquare, User, Shirt, Volume2, Brain, Settings, Code2, Boxes } from 'lucide-react'
 import { useAppStore } from '../../stores/appStore'
 import type { SidebarTab } from '../../types'
 
@@ -17,7 +17,8 @@ const TABS: TabDef[] = [
   { id: 'ses',         label: 'Ses',          icon: Volume2 },
   { id: 'hafiza',      label: 'Hafıza',       icon: Brain },
   { id: 'ayarlar',     label: 'Ayarlar',      icon: Settings },
-  { id: 'gelistirici', label: 'Gelişt.',      icon: Code2 },
+  { id: 'gelistirici',   label: 'Gelişt.',      icon: Code2 },
+  { id: 'model-studio', label: '3D Stüdyo',   icon: Boxes },
 ]
 
 export default function Sidebar() {

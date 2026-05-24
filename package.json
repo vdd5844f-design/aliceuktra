@@ -42,11 +42,15 @@
     "wait-on": "^9.0.10"
   },
   "dependencies": {
+    "@pixiv/three-vrm": "^3.5.3",
+    "@types/three": "^0.184.1",
     "electron-store": "^11.0.2",
     "framer-motion": "^12.40.0",
     "lucide-react": "^1.16.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
+    "three": "^0.184.0",
+    "uuid": "^14.0.0",
     "zustand": "^5.0.13"
   }
 }

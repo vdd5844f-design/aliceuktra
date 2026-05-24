@@ -5,6 +5,7 @@ import StatusBar from './StatusBar'
 import CharacterPanel from '../character/CharacterPanel'
 import ChatPanel from '../chat/ChatPanel'
 import RightPanel from '../settings/RightPanel'
+import ModelStudioPage from '../../features/model-studio/ModelStudioPage'
 import { useAppStore } from '../../stores/appStore'
 
 const alice = () =>
@@ -13,7 +14,8 @@ const alice = () =>
 
 export default function StudioWindow() {
   const { activeTab, setScanResult, setSettings } = useAppStore()
-  const showRight = activeTab !== 'sohbet'
+  const showRight = activeTab !== 'sohbet' && activeTab !== 'model-studio'
+  const isModelStudio = activeTab === 'model-studio'
 
   // ── On mount: load saved settings then scan assets
   useEffect(() => {
@@ -45,9 +47,17 @@ export default function StudioWindow() {
 
       <div className="flex flex-1 overflow-hidden">
         <Sidebar />
-        <CharacterPanel />
-        <ChatPanel />
-        {showRight && <RightPanel />}
+        {isModelStudio ? (
+          <div className="flex-1 overflow-hidden">
+            <ModelStudioPage />
+          </div>
+        ) : (
+          <>
+            <CharacterPanel />
+            <ChatPanel />
+            {showRight && <RightPanel />}
+          </>
+        )}
       </div>
 
       <StatusBar />

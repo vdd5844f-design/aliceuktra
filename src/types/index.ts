@@ -12,6 +12,7 @@ export type Provider =
 export type SidebarTab =
   | 'sohbet' | 'karakter' | 'kiyafet'
   | 'ses' | 'hafiza' | 'ayarlar' | 'gelistirici'
+  | 'model-studio'
 
 // ─────────────────────────────────────────────
 // Asset types — mirrored in electron/ipc/assets.ipc.ts
