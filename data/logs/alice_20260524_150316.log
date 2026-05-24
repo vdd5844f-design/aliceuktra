@@ -1,0 +1,32 @@
+2026-05-24 15:03:16,525 - ai.provider_registry - INFO - Provider registered: ollama
+2026-05-24 15:03:16,526 - ai.provider_registry - INFO - Provider registered: openai
+2026-05-24 15:03:16,526 - ai.provider_registry - INFO - Provider registered: openai-compatible
+2026-05-24 15:03:16,527 - ai.provider_registry - INFO - Provider registered: anthropic
+2026-05-24 15:03:16,527 - ai.provider_registry - INFO - Provider registered: claude
+2026-05-24 15:03:16,528 - ai.provider_registry - INFO - Provider registered: gemini
+2026-05-24 15:03:16,528 - ai.provider_registry - INFO - Provider registered: openrouter
+2026-05-24 15:03:16,614 - engine.asset_scanner - INFO - Scanned 625 PNG assets, 8 characters
+2026-05-24 15:03:16,614 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 15:03:16,615 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 15:03:16,615 - engine.character_manager - INFO - Loaded character: drift
+2026-05-24 15:03:16,615 - engine.character_manager - INFO - Loaded character: eve
+2026-05-24 15:03:16,615 - engine.character_manager - INFO - Loaded character: ichiko
+2026-05-24 15:03:16,615 - engine.character_manager - INFO - Loaded character: miho
+2026-05-24 15:03:16,615 - engine.character_manager - INFO - Loaded character: natsumi
+2026-05-24 15:03:16,615 - engine.character_manager - INFO - Loaded character: sumi
+2026-05-24 15:03:16,615 - engine.character_manager - INFO - CharacterManager initialized with 8 characters
+2026-05-24 15:03:16,663 - voice.voice_manager - INFO - VoiceVox synthesizer initialized
+2026-05-24 15:03:16,664 - core.app - INFO - AlicePetApp initialized
+2026-05-24 15:03:16,666 - memory.conversation_store - INFO - Conversation created: 14
+2026-05-24 15:03:16,666 - memory.conversation_store - INFO - Conversation created: 14
+2026-05-24 15:03:16,688 - ui.main_window - INFO - AliceMainWindow initialized
+2026-05-24 15:03:16,688 - ui.main_window - INFO - AliceMainWindow initialized
+2026-05-24 15:03:16,694 - ui.tray - INFO - System tray created
+2026-05-24 15:03:16,694 - core.app - INFO - Application started in Studio Mode
+2026-05-24 15:03:16,694 - engine.character_manager - INFO - Active character changed to: aiko
+2026-05-24 15:03:16,694 - engine.sprite_animator - INFO - Frame cache cleared
+2026-05-24 15:03:16,695 - engine.sprite_animator - INFO - Character changed to: aiko
+2026-05-24 15:03:16,899 - ui.pet_window - INFO - PetWindow initialized
+2026-05-24 15:03:16,901 - memory.conversation_store - INFO - Conversation closed: 14
+2026-05-24 15:03:16,901 - memory.conversation_store - INFO - Conversation closed: 14
+2026-05-24 15:03:16,902 - core.app - INFO - Application shutdown

@@ -1,0 +1,66 @@
+2026-05-24 15:31:52,242 - ai.provider_registry - INFO - Provider registered: ollama
+2026-05-24 15:31:52,242 - ai.provider_registry - INFO - Provider registered: openai
+2026-05-24 15:31:52,242 - ai.provider_registry - INFO - Provider registered: openai-compatible
+2026-05-24 15:31:52,243 - ai.provider_registry - INFO - Provider registered: anthropic
+2026-05-24 15:31:52,243 - ai.provider_registry - INFO - Provider registered: claude
+2026-05-24 15:31:52,244 - ai.provider_registry - INFO - Provider registered: gemini
+2026-05-24 15:31:52,244 - ai.provider_registry - INFO - Provider registered: openrouter
+2026-05-24 15:31:52,352 - engine.asset_scanner - INFO - Scanned 625 PNG assets, 8 characters
+2026-05-24 15:31:52,353 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 15:31:52,353 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 15:31:52,353 - engine.character_manager - INFO - Loaded character: drift
+2026-05-24 15:31:52,353 - engine.character_manager - INFO - Loaded character: eve
+2026-05-24 15:31:52,353 - engine.character_manager - INFO - Loaded character: ichiko
+2026-05-24 15:31:52,353 - engine.character_manager - INFO - Loaded character: miho
+2026-05-24 15:31:52,353 - engine.character_manager - INFO - Loaded character: natsumi
+2026-05-24 15:31:52,353 - engine.character_manager - INFO - Loaded character: sumi
+2026-05-24 15:31:52,353 - engine.character_manager - INFO - CharacterManager initialized with 8 characters
+2026-05-24 15:31:52,388 - voice.voice_manager - INFO - VoiceVox synthesizer initialized
+2026-05-24 15:31:52,389 - core.app - INFO - AlicePetApp initialized
+2026-05-24 15:31:52,390 - memory.conversation_store - INFO - Conversation created: 21
+2026-05-24 15:31:52,390 - memory.conversation_store - INFO - Conversation created: 21
+2026-05-24 15:31:52,999 - ui.tray - INFO - System tray created
+2026-05-24 15:31:53,000 - core.app - INFO - Application started in Studio Mode
+2026-05-24 15:32:09,972 - engine.character_manager - INFO - Active character changed to: aiko
+2026-05-24 15:32:09,973 - engine.sprite_animator - INFO - Frame cache cleared
+2026-05-24 15:32:09,974 - engine.sprite_animator - INFO - Character changed to: aiko
+2026-05-24 15:32:16,260 - memory.conversation_store - DEBUG - Message added: 4
+2026-05-24 15:32:16,260 - memory.conversation_store - DEBUG - Message added: 4
+2026-05-24 15:32:18,288 - core.app - ERROR - AI error: Ollama request failed. Endpoint: http://127.0.0.1:11434/api/chat. Model: qwen2.5:3b. Check base_url, Cloudflare tunnel availability, and model name. Details: HTTPConnectionPool(host='127.0.0.1', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000018695C4FC50>: Failed to establish a new connection: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý')).
+2026-05-24 15:33:08,336 - voice.voice_manager - INFO - VoiceVox synthesizer initialized
+2026-05-24 15:33:09,670 - voice.voice_manager - INFO - VoiceVox synthesizer initialized
+2026-05-24 15:33:15,176 - engine.asset_scanner - INFO - Scanned 625 PNG assets, 8 characters
+2026-05-24 15:33:15,177 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 15:33:15,177 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 15:33:15,177 - engine.character_manager - INFO - Loaded character: drift
+2026-05-24 15:33:15,177 - engine.character_manager - INFO - Loaded character: eve
+2026-05-24 15:33:15,177 - engine.character_manager - INFO - Loaded character: ichiko
+2026-05-24 15:33:15,177 - engine.character_manager - INFO - Loaded character: miho
+2026-05-24 15:33:15,177 - engine.character_manager - INFO - Loaded character: natsumi
+2026-05-24 15:33:15,177 - engine.character_manager - INFO - Loaded character: sumi
+2026-05-24 15:33:15,177 - engine.character_manager - INFO - Characters reloaded
+2026-05-24 15:33:27,881 - voice.voice_manager - INFO - VoiceVox synthesizer initialized
+2026-05-24 15:33:37,198 - engine.asset_scanner - INFO - Scanned 625 PNG assets, 8 characters
+2026-05-24 15:33:37,198 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 15:33:37,198 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 15:33:37,198 - engine.character_manager - INFO - Loaded character: drift
+2026-05-24 15:33:37,198 - engine.character_manager - INFO - Loaded character: eve
+2026-05-24 15:33:37,198 - engine.character_manager - INFO - Loaded character: ichiko
+2026-05-24 15:33:37,198 - engine.character_manager - INFO - Loaded character: miho
+2026-05-24 15:33:37,198 - engine.character_manager - INFO - Loaded character: natsumi
+2026-05-24 15:33:37,199 - engine.character_manager - INFO - Loaded character: sumi
+2026-05-24 15:33:37,199 - engine.character_manager - INFO - Characters reloaded
+2026-05-24 15:33:37,275 - engine.asset_scanner - INFO - Scanned 625 PNG assets, 8 characters
+2026-05-24 15:33:37,276 - engine.sprite_animator - INFO - Frame cache cleared
+2026-05-24 15:33:40,515 - voice.voice_manager - INFO - VoiceVox synthesizer initialized
+2026-05-24 15:36:21,242 - voice.voice_manager - INFO - VoiceVox synthesizer initialized
+2026-05-24 15:36:27,945 - memory.conversation_store - DEBUG - Message added: 5
+2026-05-24 15:36:27,945 - memory.conversation_store - DEBUG - Message added: 5
+2026-05-24 15:36:31,889 - memory.conversation_store - DEBUG - Message added: 6
+2026-05-24 15:36:31,889 - memory.conversation_store - DEBUG - Message added: 6
+2026-05-24 15:36:31,889 - engine.emotion_engine - WARNING - Invalid transition: idle -> idle
+2026-05-24 15:36:31,890 - core.app - DEBUG - AI response processed (emotion: idle)
+2026-05-24 15:36:31,907 - voice.voice_manager - INFO - VoiceVox synthesizer initialized
+2026-05-24 15:36:45,223 - memory.conversation_store - INFO - Conversation closed: 21
+2026-05-24 15:36:45,223 - memory.conversation_store - INFO - Conversation closed: 21
+2026-05-24 15:36:45,225 - core.app - INFO - Application shutdown

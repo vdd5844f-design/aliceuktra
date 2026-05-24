@@ -1,0 +1,4 @@
+2026-05-21 21:38:46,175 - engine.sprite_animator - DEBUG - Animation changed: None -> idle
+2026-05-21 21:38:46,186 - engine.sprite_animator - DEBUG - Animation changed: idle -> happy
+2026-05-21 21:38:46,186 - engine.sprite_animator - DEBUG - Animation changed: happy -> talk
+2026-05-21 21:38:46,186 - engine.sprite_animator - DEBUG - Animation changed: talk -> idle

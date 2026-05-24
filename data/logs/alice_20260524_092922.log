@@ -1,0 +1,18 @@
+2026-05-24 09:29:22,114 - ai.provider_registry - INFO - Provider registered: ollama
+2026-05-24 09:29:22,115 - ai.provider_registry - INFO - Provider registered: openai
+2026-05-24 09:29:22,116 - ai.provider_registry - INFO - Provider registered: openai-compatible
+2026-05-24 09:29:22,118 - ai.provider_registry - INFO - Provider registered: anthropic
+2026-05-24 09:29:22,118 - ai.provider_registry - INFO - Provider registered: claude
+2026-05-24 09:29:22,119 - ai.provider_registry - INFO - Provider registered: gemini
+2026-05-24 09:29:22,121 - ai.provider_registry - INFO - Provider registered: openrouter
+2026-05-24 09:29:22,195 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 09:29:22,196 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 09:29:22,196 - engine.character_manager - INFO - CharacterManager initialized with 2 characters
+2026-05-24 09:29:24,221 - voice.base - ERROR - VoiceVox health check failed: HTTPConnectionPool(host='127.0.0.1', port=50021): Max retries exceeded with url: /version (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001E9D9214690>: Failed to establish a new connection: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý'))
+2026-05-24 09:29:24,221 - voice.voice_manager - WARNING - VoiceVox health check failed
+2026-05-24 09:29:24,225 - core.app - INFO - AI worker thread started
+2026-05-24 09:29:24,228 - core.app - INFO - AlicePetApp initialized (production mode)
+2026-05-24 09:29:24,242 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 09:29:24,243 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 09:29:24,243 - engine.character_manager - INFO - CharacterManager initialized with 2 characters
+2026-05-24 09:29:25,535 - core.app - INFO - Application started

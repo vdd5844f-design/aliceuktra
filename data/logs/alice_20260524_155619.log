@@ -1,0 +1,7 @@
+2026-05-24 15:56:19,393 - ui.pet_window - INFO - PetWindow initialized
+2026-05-24 15:56:40,409 - engine.sprite_animator - INFO - Frame cache cleared
+2026-05-24 15:57:12,681 - engine.sprite_animator - INFO - Frame cache cleared
+2026-05-24 15:57:12,682 - engine.sprite_animator - INFO - Character changed to: drift
+2026-05-24 15:57:12,697 - engine.sprite_animator - INFO - Frame cache cleared
+2026-05-24 15:57:12,698 - engine.sprite_animator - INFO - Character changed to: drift
+2026-05-24 15:57:30,497 - ui.pet_window - INFO - PetWindow closed

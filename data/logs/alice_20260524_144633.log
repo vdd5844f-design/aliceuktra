@@ -1,0 +1,17 @@
+2026-05-24 14:46:33,508 - engine.asset_scanner - INFO - Scanned 625 PNG assets, 8 characters
+2026-05-24 14:46:33,508 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 14:46:33,508 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 14:46:33,508 - engine.character_manager - INFO - Loaded character: drift
+2026-05-24 14:46:33,508 - engine.character_manager - INFO - Loaded character: eve
+2026-05-24 14:46:33,508 - engine.character_manager - INFO - Loaded character: ichiko
+2026-05-24 14:46:33,508 - engine.character_manager - INFO - Loaded character: miho
+2026-05-24 14:46:33,510 - engine.character_manager - INFO - Loaded character: natsumi
+2026-05-24 14:46:33,510 - engine.character_manager - INFO - Loaded character: sumi
+2026-05-24 14:46:33,510 - engine.character_manager - INFO - CharacterManager initialized with 8 characters
+2026-05-24 14:46:33,536 - ui.main_window - INFO - AliceMainWindow initialized
+2026-05-24 14:46:33,536 - ui.main_window - INFO - AliceMainWindow initialized
+2026-05-24 14:46:33,536 - engine.character_manager - INFO - Active character changed to: aiko
+2026-05-24 14:46:33,537 - engine.sprite_animator - INFO - Frame cache cleared
+2026-05-24 14:46:33,537 - engine.sprite_animator - INFO - Character changed to: aiko
+2026-05-24 14:46:33,672 - ui.main_window - INFO - MainWindow closing
+2026-05-24 14:46:33,672 - ui.main_window - INFO - MainWindow closing

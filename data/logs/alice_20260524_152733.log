@@ -1,0 +1,28 @@
+2026-05-24 15:27:33,815 - ai.provider_registry - INFO - Provider registered: ollama
+2026-05-24 15:27:33,816 - ai.provider_registry - INFO - Provider registered: openai
+2026-05-24 15:27:33,816 - ai.provider_registry - INFO - Provider registered: openai-compatible
+2026-05-24 15:27:33,816 - ai.provider_registry - INFO - Provider registered: anthropic
+2026-05-24 15:27:33,816 - ai.provider_registry - INFO - Provider registered: claude
+2026-05-24 15:27:33,817 - ai.provider_registry - INFO - Provider registered: gemini
+2026-05-24 15:27:33,818 - ai.provider_registry - INFO - Provider registered: openrouter
+2026-05-24 15:27:33,910 - engine.asset_scanner - INFO - Scanned 625 PNG assets, 8 characters
+2026-05-24 15:27:33,910 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 15:27:33,910 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 15:27:33,910 - engine.character_manager - INFO - Loaded character: drift
+2026-05-24 15:27:33,911 - engine.character_manager - INFO - Loaded character: eve
+2026-05-24 15:27:33,911 - engine.character_manager - INFO - Loaded character: ichiko
+2026-05-24 15:27:33,911 - engine.character_manager - INFO - Loaded character: miho
+2026-05-24 15:27:33,911 - engine.character_manager - INFO - Loaded character: natsumi
+2026-05-24 15:27:33,911 - engine.character_manager - INFO - Loaded character: sumi
+2026-05-24 15:27:33,911 - engine.character_manager - INFO - CharacterManager initialized with 8 characters
+2026-05-24 15:27:33,952 - voice.voice_manager - INFO - VoiceVox synthesizer initialized
+2026-05-24 15:27:33,952 - core.app - INFO - AlicePetApp initialized
+2026-05-24 15:27:33,954 - memory.conversation_store - INFO - Conversation created: 20
+2026-05-24 15:27:33,954 - memory.conversation_store - INFO - Conversation created: 20
+2026-05-24 15:27:34,003 - core.app - INFO - Application started in Studio Mode
+2026-05-24 15:27:34,003 - engine.character_manager - INFO - Active character changed to: aiko
+2026-05-24 15:27:34,004 - engine.sprite_animator - INFO - Frame cache cleared
+2026-05-24 15:27:34,004 - engine.sprite_animator - INFO - Character changed to: aiko
+2026-05-24 15:27:34,161 - memory.conversation_store - INFO - Conversation closed: 20
+2026-05-24 15:27:34,161 - memory.conversation_store - INFO - Conversation closed: 20
+2026-05-24 15:27:34,183 - core.app - INFO - Application shutdown

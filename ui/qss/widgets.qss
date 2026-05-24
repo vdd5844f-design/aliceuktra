@@ -1,0 +1,135 @@
+QFrame#topBar, QFrame#quickBar, QFrame#previewPanel, QFrame#chatPanel, QFrame#commandCard {
+    background: rgba(11, 16, 32, 0.72);
+    border: 1px solid rgba(0, 229, 255, 0.15);
+    border-radius: 20px;
+}
+
+QFrame#previewPanel {
+    background: qradialgradient(cx:0.50, cy:0.38, radius:0.92,
+        stop:0 rgba(0, 229, 255, 0.12),
+        stop:0.45 rgba(124, 58, 237, 0.10),
+        stop:1 rgba(11, 16, 32, 0.72));
+}
+
+QTextEdit#chatView {
+    background: rgba(5, 7, 10, 0.34);
+    border: 1px solid rgba(0, 229, 255, 0.10);
+    border-radius: 18px;
+    padding: 16px;
+}
+
+QTextEdit#messageInput, QLineEdit, QTextEdit, QComboBox, QSpinBox, QDoubleSpinBox {
+    background: rgba(15, 23, 42, 0.72);
+    color: #e5e7eb;
+    border: 1px solid rgba(0, 229, 255, 0.20);
+    border-radius: 16px;
+    padding: 10px 12px;
+    selection-background-color: rgba(0, 229, 255, 0.26);
+}
+
+QTextEdit#messageInput:focus, QLineEdit:focus, QTextEdit:focus, QComboBox:focus,
+QSpinBox:focus, QDoubleSpinBox:focus {
+    border: 1px solid #00e5ff;
+    background: rgba(15, 23, 42, 0.92);
+}
+
+QPushButton {
+    background: rgba(15, 23, 42, 0.82);
+    color: #e5e7eb;
+    border: 1px solid rgba(0, 229, 255, 0.22);
+    border-radius: 18px;
+    padding: 10px 16px;
+    font-weight: 700;
+}
+
+QPushButton:hover {
+    background: rgba(0, 229, 255, 0.14);
+    border: 1px solid rgba(0, 255, 153, 0.46);
+}
+
+QPushButton[variant="primary"] {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+        stop:0 rgba(0, 229, 255, 0.24),
+        stop:1 rgba(124, 58, 237, 0.32));
+    border: 1px solid rgba(0, 229, 255, 0.42);
+}
+
+QPushButton[variant="ghost"] {
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+QPushButton[variant="icon"] {
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(0, 229, 255, 0.18);
+    padding: 0px;
+}
+
+QPushButton:disabled {
+    color: #64748b;
+    border: 1px solid rgba(148, 163, 184, 0.10);
+    background: rgba(15, 23, 42, 0.42);
+}
+
+QComboBox::drop-down {
+    border: none;
+    width: 28px;
+}
+
+QComboBox QAbstractItemView {
+    background: #0b1020;
+    color: #e5e7eb;
+    border: 1px solid rgba(0, 229, 255, 0.30);
+    selection-background-color: rgba(124, 58, 237, 0.42);
+    outline: 0;
+}
+
+QCheckBox {
+    color: #e5e7eb;
+    spacing: 10px;
+}
+
+QCheckBox::indicator {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid rgba(0, 229, 255, 0.28);
+}
+
+QCheckBox::indicator:checked {
+    background: #00ff99;
+    border: 1px solid rgba(0, 255, 153, 0.75);
+}
+
+QTabWidget::pane {
+    border: 1px solid rgba(0, 229, 255, 0.12);
+    border-radius: 18px;
+    background: rgba(11, 16, 32, 0.58);
+}
+
+QTabBar::tab {
+    background: rgba(15, 23, 42, 0.72);
+    color: #94a3b8;
+    border: 1px solid rgba(0, 229, 255, 0.10);
+    padding: 12px 16px;
+    margin: 4px;
+    border-radius: 14px;
+}
+
+QTabBar::tab:selected {
+    color: #00e5ff;
+    background: rgba(0, 229, 255, 0.12);
+    border: 1px solid rgba(0, 229, 255, 0.38);
+}
+
+QScrollBar:vertical {
+    width: 10px;
+    background: rgba(5, 7, 10, 0.34);
+}
+
+QScrollBar::handle:vertical {
+    background: rgba(0, 229, 255, 0.28);
+    border-radius: 5px;
+    min-height: 30px;
+}

@@ -1,0 +1,26 @@
+{
+  "window": {
+    "width": 320,
+    "height": 320,
+    "x": 1200,
+    "y": 600,
+    "always_on_top": true
+  },
+  "animation": {
+    "fps": 11,
+    "frame_delay_ms": 90
+  },
+  "ai": {
+    "ollama_url": "http://127.0.0.1:11434",
+    "model": "qwen2.5:3b",
+    "timeout": 120
+  },
+  "voice": {
+    "tts_engine": "voicevox",
+    "voicevox_url": "http://127.0.0.1:50021",
+    "voicevox_speaker": 47,
+    "piper_voice": "tr_TR-kbvcorpus-medium"
+  },
+  "language": "tr_TR",
+  "debug": false
+}

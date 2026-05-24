@@ -1,0 +1,11 @@
+{
+  "id": "aiko",
+  "name": "Aiko",
+  "description": "Aiko Character",
+  "active": false,
+  "default_outfit": "default",
+  "version": "1.0",
+  "outfits": [
+    "gym"
+  ]
+}

@@ -1,0 +1,19 @@
+2026-05-24 14:27:23,630 - memory.conversation_store - INFO - Conversation created: 8
+2026-05-24 14:27:23,630 - memory.conversation_store - INFO - Conversation created: 8
+2026-05-24 14:27:23,632 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 14:27:23,632 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 14:27:23,632 - engine.character_manager - INFO - Loaded character: drift
+2026-05-24 14:27:23,633 - engine.character_manager - INFO - Loaded character: eve
+2026-05-24 14:27:23,633 - engine.character_manager - INFO - Loaded character: ichiko
+2026-05-24 14:27:23,633 - engine.character_manager - INFO - Loaded character: miho
+2026-05-24 14:27:23,634 - engine.character_manager - INFO - Loaded character: natsumi
+2026-05-24 14:27:23,634 - engine.character_manager - INFO - Loaded character: sumi
+2026-05-24 14:27:23,634 - engine.character_manager - INFO - CharacterManager initialized with 8 characters
+2026-05-24 14:27:23,645 - engine.sprite_animator - DEBUG - Loaded 4 frames: idle/default
+2026-05-24 14:27:23,651 - engine.sprite_animator - DEBUG - Emotion path not found: assets\characters\alice\outfits\aiko_gym\idle (character: alice, outfit: aiko_gym)
+2026-05-24 14:27:23,651 - ui.main_window - INFO - AliceMainWindow initialized
+2026-05-24 14:27:23,651 - ui.main_window - INFO - AliceMainWindow initialized
+2026-05-24 14:29:44,842 - ui.main_window - INFO - MainWindow closing
+2026-05-24 14:29:44,842 - ui.main_window - INFO - MainWindow closing
+2026-05-24 14:29:44,844 - memory.conversation_store - INFO - Conversation closed: 8
+2026-05-24 14:29:44,844 - memory.conversation_store - INFO - Conversation closed: 8

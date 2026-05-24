@@ -1,0 +1,63 @@
+* {
+    font-family: Inter, Outfit, "Segoe UI", Arial;
+    font-size: 13px;
+    color: #e5e7eb;
+}
+
+QMainWindow, QDialog {
+    background: #05070a;
+}
+
+QWidget {
+    background: transparent;
+}
+
+QLabel {
+    color: #e5e7eb;
+}
+
+QLabel#logoTitle {
+    font-size: 19px;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+QLabel#mutedText, QLabel[muted="true"] {
+    color: #94a3b8;
+}
+
+QLabel#badge {
+    color: #00e5ff;
+    background: rgba(0, 229, 255, 0.10);
+    border: 1px solid rgba(0, 229, 255, 0.22);
+    border-radius: 13px;
+    padding: 6px 10px;
+}
+
+QStatusBar {
+    background: rgba(5, 7, 10, 0.88);
+    border-top: 1px solid rgba(0, 229, 255, 0.12);
+}
+
+QMenu {
+    background: rgba(11, 16, 32, 0.98);
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    border-radius: 14px;
+    padding: 8px;
+}
+
+QMenu::item {
+    padding: 9px 24px;
+    border-radius: 10px;
+}
+
+QMenu::item:selected {
+    background: rgba(0, 229, 255, 0.16);
+    color: #00e5ff;
+}
+
+QMenu::separator {
+    height: 1px;
+    background: rgba(148, 163, 184, 0.14);
+    margin: 6px 0;
+}

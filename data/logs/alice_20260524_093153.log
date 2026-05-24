@@ -1,0 +1,13 @@
+2026-05-24 09:31:53,451 - memory.conversation_store - INFO - Conversation created: 6
+2026-05-24 09:31:53,451 - memory.conversation_store - INFO - Conversation created: 6
+2026-05-24 09:31:53,453 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 09:31:53,453 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 09:31:53,454 - engine.character_manager - INFO - CharacterManager initialized with 2 characters
+2026-05-24 09:31:53,464 - engine.sprite_animator - DEBUG - Loaded 4 frames: idle/default
+2026-05-24 09:31:53,471 - engine.sprite_animator - DEBUG - Emotion path not found: assets\characters\alice\outfits\aiko_gym\idle (character: alice, outfit: aiko_gym)
+2026-05-24 09:31:53,471 - ui.main_window - INFO - AliceMainWindow initialized
+2026-05-24 09:31:53,471 - ui.main_window - INFO - AliceMainWindow initialized
+2026-05-24 09:32:16,488 - ui.main_window - INFO - MainWindow closing
+2026-05-24 09:32:16,488 - ui.main_window - INFO - MainWindow closing
+2026-05-24 09:32:16,489 - memory.conversation_store - INFO - Conversation closed: 6
+2026-05-24 09:32:16,489 - memory.conversation_store - INFO - Conversation closed: 6

@@ -1,0 +1,12 @@
+2026-05-24 09:29:24,229 - memory.conversation_store - INFO - Conversation created: 4
+2026-05-24 09:29:24,229 - memory.conversation_store - INFO - Conversation created: 4
+2026-05-24 09:29:24,242 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 09:29:24,243 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 09:29:24,243 - engine.character_manager - INFO - CharacterManager initialized with 2 characters
+2026-05-24 09:29:24,275 - engine.sprite_animator - ERROR - Failed to load frame: assets\characters\alice\outfits\default\idle\frame_0.png: encoder RGBA not available
+2026-05-24 09:29:24,280 - engine.sprite_animator - ERROR - Failed to load frame: assets\characters\alice\outfits\default\idle\frame_1.png: encoder RGBA not available
+2026-05-24 09:29:24,288 - engine.sprite_animator - ERROR - Failed to load frame: assets\characters\alice\outfits\default\idle\frame_2.png: encoder RGBA not available
+2026-05-24 09:29:24,293 - engine.sprite_animator - ERROR - Failed to load frame: assets\characters\alice\outfits\default\idle\frame_3.png: encoder RGBA not available
+2026-05-24 09:29:24,321 - engine.sprite_animator - WARNING - Emotion path not found: assets\characters\alice\outfits\aiko_gym\idle (character: alice, outfit: aiko_gym)
+2026-05-24 09:29:24,321 - ui.main_window - INFO - AliceMainWindow initialized
+2026-05-24 09:29:24,321 - ui.main_window - INFO - AliceMainWindow initialized

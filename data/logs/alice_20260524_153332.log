@@ -1,0 +1,1 @@
+2026-05-24 15:33:32,751 - ai.ollama_provider - ERROR - Ollama request failed HTTP 404. Endpoint: http://127.0.0.1:11434/api/chat. Model: qwen2.5:3b. Check base_url, Cloudflare tunnel availability, and model name. Details: 404 Client Error: Not Found for url: http://127.0.0.1:11434/api/chat. Response: {"error":"model 'qwen2.5:3b' not found"}

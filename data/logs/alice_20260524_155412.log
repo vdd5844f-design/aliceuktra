@@ -1,0 +1,18 @@
+2026-05-24 15:54:13,093 - ai.ollama_provider - ERROR - Ollama request failed HTTP 530. Endpoint: https://sep-glow-star-explore.trycloudflare.com/api/chat. Model: qwen2.5:3b. Check base_url, Cloudflare tunnel availability, and model name. Details: 530 Server Error: Unknown for url: https://sep-glow-star-explore.trycloudflare.com/api/chat. Response: <!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en-US"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US"> <!--<![endif]-->
+<head>
+<title>Cloudflare Tunnel error | sep-glow-star-explore.trycloudflare.com | Cloudflare</title>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset
+2026-05-24 15:54:13,094 - workers.ai_worker - ERROR - AI worker error: Ollama request failed HTTP 530. Endpoint: https://sep-glow-star-explore.trycloudflare.com/api/chat. Model: qwen2.5:3b. Check base_url, Cloudflare tunnel availability, and model name. Details: 530 Server Error: Unknown for url: https://sep-glow-star-explore.trycloudflare.com/api/chat. Response: <!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en-US"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US"> <!--<![endif]-->
+<head>
+<title>Cloudflare Tunnel error | sep-glow-star-explore.trycloudflare.com | Cloudflare</title>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset

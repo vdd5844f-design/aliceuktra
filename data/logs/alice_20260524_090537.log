@@ -1,0 +1,10 @@
+2026-05-24 09:05:37,171 - memory.conversation_store - INFO - Conversation created: 1
+2026-05-24 09:05:37,171 - memory.conversation_store - INFO - Conversation created: 1
+2026-05-24 09:05:37,182 - ui.pet_window - INFO - OutfitManager initialized
+2026-05-24 09:05:37,183 - ui.pet_window - INFO - Current outfit: default
+2026-05-24 09:05:37,183 - ui.pet_window - INFO - PetWindow initialized
+2026-05-24 09:05:37,187 - ui.chat_panel - DEBUG - ChatPanel UI created
+2026-05-24 09:05:37,188 - ui.main_window - DEBUG - UI setup completed
+2026-05-24 09:05:37,188 - ui.main_window - INFO - AliceMainWindow initialized
+2026-05-24 09:05:37,246 - ui.tray - INFO - System tray created
+2026-05-24 09:05:37,271 - engine.sprite_animator - DEBUG - Animasyon deðiþti: None -> idle

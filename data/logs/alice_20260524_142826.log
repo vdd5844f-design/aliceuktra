@@ -1,0 +1,31 @@
+2026-05-24 14:28:26,060 - ai.provider_registry - INFO - Provider registered: ollama
+2026-05-24 14:28:26,061 - ai.provider_registry - INFO - Provider registered: openai
+2026-05-24 14:28:26,061 - ai.provider_registry - INFO - Provider registered: openai-compatible
+2026-05-24 14:28:26,062 - ai.provider_registry - INFO - Provider registered: anthropic
+2026-05-24 14:28:26,062 - ai.provider_registry - INFO - Provider registered: claude
+2026-05-24 14:28:26,062 - ai.provider_registry - INFO - Provider registered: gemini
+2026-05-24 14:28:26,063 - ai.provider_registry - INFO - Provider registered: openrouter
+2026-05-24 14:28:26,091 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 14:28:26,091 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 14:28:26,092 - engine.character_manager - INFO - Loaded character: drift
+2026-05-24 14:28:26,092 - engine.character_manager - INFO - Loaded character: eve
+2026-05-24 14:28:26,092 - engine.character_manager - INFO - Loaded character: ichiko
+2026-05-24 14:28:26,092 - engine.character_manager - INFO - Loaded character: miho
+2026-05-24 14:28:26,092 - engine.character_manager - INFO - Loaded character: natsumi
+2026-05-24 14:28:26,093 - engine.character_manager - INFO - Loaded character: sumi
+2026-05-24 14:28:26,093 - engine.character_manager - INFO - CharacterManager initialized with 8 characters
+2026-05-24 14:28:28,111 - voice.base - ERROR - VoiceVox health check failed: HTTPConnectionPool(host='127.0.0.1', port=50021): Max retries exceeded with url: /version (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000180CBAD3850>: Failed to establish a new connection: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý'))
+2026-05-24 14:28:28,111 - voice.voice_manager - WARNING - VoiceVox health check failed
+2026-05-24 14:28:28,112 - core.app - INFO - AI worker thread started
+2026-05-24 14:28:28,116 - core.app - INFO - AlicePetApp initialized (production mode)
+2026-05-24 14:28:28,119 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 14:28:28,119 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 14:28:28,120 - engine.character_manager - INFO - Loaded character: drift
+2026-05-24 14:28:28,121 - engine.character_manager - INFO - Loaded character: eve
+2026-05-24 14:28:28,121 - engine.character_manager - INFO - Loaded character: ichiko
+2026-05-24 14:28:28,122 - engine.character_manager - INFO - Loaded character: miho
+2026-05-24 14:28:28,123 - engine.character_manager - INFO - Loaded character: natsumi
+2026-05-24 14:28:28,123 - engine.character_manager - INFO - Loaded character: sumi
+2026-05-24 14:28:28,123 - engine.character_manager - INFO - CharacterManager initialized with 8 characters
+2026-05-24 14:28:29,166 - core.app - INFO - Application started
+2026-05-24 14:30:45,429 - core.app - INFO - Application shutdown

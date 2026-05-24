@@ -1,0 +1,10 @@
+2026-05-24 15:49:30,813 - engine.asset_scanner - INFO - Scanned 625 PNG assets, 8 characters
+2026-05-24 15:49:30,814 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 15:49:30,814 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 15:49:30,814 - engine.character_manager - INFO - Loaded character: drift
+2026-05-24 15:49:30,814 - engine.character_manager - INFO - Loaded character: eve
+2026-05-24 15:49:30,814 - engine.character_manager - INFO - Loaded character: ichiko
+2026-05-24 15:49:30,814 - engine.character_manager - INFO - Loaded character: miho
+2026-05-24 15:49:30,817 - engine.character_manager - INFO - Loaded character: natsumi
+2026-05-24 15:49:30,817 - engine.character_manager - INFO - Loaded character: sumi
+2026-05-24 15:49:30,817 - engine.character_manager - INFO - CharacterManager initialized with 8 characters

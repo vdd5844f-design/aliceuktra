@@ -1,0 +1,7 @@
+2026-05-24 09:03:42,714 - ai.provider_registry - INFO - Provider registered: ollama
+2026-05-24 09:03:42,717 - ai.provider_registry - INFO - Provider registered: openai
+2026-05-24 09:03:42,717 - ai.provider_registry - INFO - Provider registered: openai-compatible
+2026-05-24 09:03:42,720 - ai.provider_registry - INFO - Provider registered: anthropic
+2026-05-24 09:03:42,720 - ai.provider_registry - INFO - Provider registered: claude
+2026-05-24 09:03:42,725 - ai.provider_registry - INFO - Provider registered: gemini
+2026-05-24 09:03:42,728 - ai.provider_registry - INFO - Provider registered: openrouter

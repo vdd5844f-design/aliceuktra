@@ -1,0 +1,34 @@
+2026-05-24 15:47:07,925 - engine.asset_scanner - INFO - Scanned 625 PNG assets, 8 characters
+2026-05-24 15:47:07,927 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 15:47:07,927 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 15:47:07,927 - engine.character_manager - INFO - Loaded character: drift
+2026-05-24 15:47:07,928 - engine.character_manager - INFO - Loaded character: eve
+2026-05-24 15:47:07,928 - engine.character_manager - INFO - Loaded character: ichiko
+2026-05-24 15:47:07,928 - engine.character_manager - INFO - Loaded character: miho
+2026-05-24 15:47:07,930 - engine.character_manager - INFO - Loaded character: natsumi
+2026-05-24 15:47:07,930 - engine.character_manager - INFO - Loaded character: sumi
+2026-05-24 15:47:07,930 - engine.character_manager - INFO - CharacterManager initialized with 8 characters
+2026-05-24 15:47:07,948 - core.app - INFO - AlicePetApp initialized
+2026-05-24 15:47:07,951 - memory.conversation_store - INFO - Conversation created: 22
+2026-05-24 15:47:07,951 - memory.conversation_store - INFO - Conversation created: 22
+2026-05-24 15:47:08,670 - core.app - INFO - Application started in Studio Mode
+2026-05-24 15:47:11,677 - core.app - ERROR - TTS error: volume must be str
+2026-05-24 15:47:20,677 - engine.character_manager - INFO - Active character changed to: aiko
+2026-05-24 15:47:20,679 - engine.sprite_animator - INFO - Frame cache cleared
+2026-05-24 15:47:20,679 - engine.sprite_animator - INFO - Character changed to: aiko
+2026-05-24 15:47:37,331 - core.app - ERROR - TTS error: volume must be str
+2026-05-24 15:47:46,095 - engine.asset_scanner - INFO - Scanned 625 PNG assets, 8 characters
+2026-05-24 15:47:46,096 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 15:47:46,096 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 15:47:46,096 - engine.character_manager - INFO - Loaded character: drift
+2026-05-24 15:47:46,096 - engine.character_manager - INFO - Loaded character: eve
+2026-05-24 15:47:46,096 - engine.character_manager - INFO - Loaded character: ichiko
+2026-05-24 15:47:46,096 - engine.character_manager - INFO - Loaded character: miho
+2026-05-24 15:47:46,096 - engine.character_manager - INFO - Loaded character: natsumi
+2026-05-24 15:47:46,097 - engine.character_manager - INFO - Loaded character: sumi
+2026-05-24 15:47:46,097 - engine.character_manager - INFO - Characters reloaded
+2026-05-24 15:47:46,168 - engine.asset_scanner - INFO - Scanned 625 PNG assets, 8 characters
+2026-05-24 15:47:46,180 - engine.sprite_animator - INFO - Frame cache cleared
+2026-05-24 15:47:53,789 - memory.conversation_store - INFO - Conversation closed: 22
+2026-05-24 15:47:53,789 - memory.conversation_store - INFO - Conversation closed: 22
+2026-05-24 15:47:53,790 - core.app - INFO - Application shutdown

@@ -1,0 +1,26 @@
+{
+  "ai": {
+    "provider": "ollama",
+    "base_url": "https://sep-glow-star-explore.trycloudflare.com",
+    "model": "qwen2.5:3b",
+    "api_key": "",
+    "temperature": 0.7,
+    "max_tokens": 2048
+  },
+  "pet": {
+    "scale": 0.5,
+    "always_on_top": true
+  },
+  "voice": {
+    "engine": "edge_tts",
+    "enabled": true,
+    "auto_speak": true,
+    "voice": "tr-TR-EmelNeural",
+    "rate": "-10%",
+    "pitch": "+6Hz",
+    "volume": "+8%",
+    "base_url": "http://127.0.0.1:50021",
+    "speaker": 47,
+    "speed": 1.0
+  }
+}

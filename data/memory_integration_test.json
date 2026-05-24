@@ -1,0 +1,16 @@
+{
+  "conversations": [
+    {
+      "timestamp": "2026-05-21T21:41:38.502112",
+      "user": "Test user",
+      "assistant": "Test assistant"
+    }
+  ],
+  "user_info": {
+    "test": "value"
+  },
+  "preferences": {
+    "test_pref": "test_val"
+  },
+  "last_session": null
+}

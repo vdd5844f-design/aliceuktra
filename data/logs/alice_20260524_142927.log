@@ -1,0 +1,19 @@
+2026-05-24 14:29:27,016 - ai.provider_registry - INFO - Provider registered: ollama
+2026-05-24 14:29:27,018 - ai.provider_registry - INFO - Provider registered: openai
+2026-05-24 14:29:27,018 - ai.provider_registry - INFO - Provider registered: openai-compatible
+2026-05-24 14:29:27,019 - ai.provider_registry - INFO - Provider registered: anthropic
+2026-05-24 14:29:27,021 - ai.provider_registry - INFO - Provider registered: claude
+2026-05-24 14:29:27,022 - ai.provider_registry - INFO - Provider registered: gemini
+2026-05-24 14:29:27,022 - ai.provider_registry - INFO - Provider registered: openrouter
+2026-05-24 14:29:27,042 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 14:29:27,042 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 14:29:27,042 - engine.character_manager - INFO - Loaded character: drift
+2026-05-24 14:29:27,043 - engine.character_manager - INFO - Loaded character: eve
+2026-05-24 14:29:27,043 - engine.character_manager - INFO - Loaded character: ichiko
+2026-05-24 14:29:27,044 - engine.character_manager - INFO - Loaded character: miho
+2026-05-24 14:29:27,044 - engine.character_manager - INFO - Loaded character: natsumi
+2026-05-24 14:29:27,044 - engine.character_manager - INFO - Loaded character: sumi
+2026-05-24 14:29:27,044 - engine.character_manager - INFO - CharacterManager initialized with 8 characters
+2026-05-24 14:29:28,344 - voice.voice_manager - INFO - VoiceVox synthesizer initialized
+2026-05-24 14:29:28,347 - core.app - INFO - AI worker thread started
+2026-05-24 14:29:28,350 - core.app - INFO - AlicePetApp initialized (production mode)

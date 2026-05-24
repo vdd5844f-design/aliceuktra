@@ -1,0 +1,40 @@
+2026-05-24 15:53:53,195 - engine.asset_scanner - INFO - Scanned 625 PNG assets, 8 characters
+2026-05-24 15:53:53,196 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 15:53:53,196 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 15:53:53,196 - engine.character_manager - INFO - Loaded character: drift
+2026-05-24 15:53:53,196 - engine.character_manager - INFO - Loaded character: eve
+2026-05-24 15:53:53,196 - engine.character_manager - INFO - Loaded character: ichiko
+2026-05-24 15:53:53,196 - engine.character_manager - INFO - Loaded character: miho
+2026-05-24 15:53:53,199 - engine.character_manager - INFO - Loaded character: natsumi
+2026-05-24 15:53:53,199 - engine.character_manager - INFO - Loaded character: sumi
+2026-05-24 15:53:53,199 - engine.character_manager - INFO - CharacterManager initialized with 8 characters
+2026-05-24 15:53:53,202 - core.app - INFO - AlicePetApp initialized
+2026-05-24 15:53:53,203 - memory.conversation_store - INFO - Conversation created: 24
+2026-05-24 15:53:53,203 - memory.conversation_store - INFO - Conversation created: 24
+2026-05-24 15:53:53,536 - ui.tray - INFO - System tray created
+2026-05-24 15:53:53,536 - core.app - INFO - Application started in Studio Mode
+2026-05-24 15:54:05,779 - engine.character_manager - INFO - Active character changed to: aiko
+2026-05-24 15:54:05,782 - engine.sprite_animator - INFO - Frame cache cleared
+2026-05-24 15:54:05,783 - engine.sprite_animator - INFO - Character changed to: aiko
+2026-05-24 15:54:12,270 - memory.conversation_store - DEBUG - Message added: 7
+2026-05-24 15:54:12,270 - memory.conversation_store - DEBUG - Message added: 7
+2026-05-24 15:54:13,095 - core.app - ERROR - AI error: Ollama request failed HTTP 530. Endpoint: https://sep-glow-star-explore.trycloudflare.com/api/chat. Model: qwen2.5:3b. Check base_url, Cloudflare tunnel availability, and model name. Details: 530 Server Error: Unknown for url: https://sep-glow-star-explore.trycloudflare.com/api/chat. Response: <!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en-US"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US"> <!--<![endif]-->
+<head>
+<title>Cloudflare Tunnel error | sep-glow-star-explore.trycloudflare.com | Cloudflare</title>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset
+2026-05-24 15:56:40,409 - engine.sprite_animator - INFO - Frame cache cleared
+2026-05-24 15:57:12,675 - engine.character_manager - INFO - Active character changed to: drift
+2026-05-24 15:57:12,681 - engine.sprite_animator - INFO - Frame cache cleared
+2026-05-24 15:57:12,682 - engine.sprite_animator - INFO - Character changed to: drift
+2026-05-24 15:57:12,682 - engine.character_manager - INFO - Active character changed to: drift
+2026-05-24 15:57:12,697 - engine.sprite_animator - INFO - Frame cache cleared
+2026-05-24 15:57:12,698 - engine.sprite_animator - INFO - Character changed to: drift
+2026-05-24 15:57:30,500 - memory.conversation_store - INFO - Conversation closed: 24
+2026-05-24 15:57:30,500 - memory.conversation_store - INFO - Conversation closed: 24
+2026-05-24 15:57:30,502 - core.app - INFO - Application shutdown
+2026-05-24 15:57:30,507 - core.app - INFO - Application shutdown

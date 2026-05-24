@@ -1,0 +1,9 @@
+2026-05-24 15:26:27,097 - voice.voice_manager - INFO - VoiceVox synthesizer initialized
+2026-05-24 15:26:27,110 - memory.conversation_store - INFO - Conversation created: 17
+2026-05-24 15:26:27,110 - memory.conversation_store - INFO - Conversation created: 17
+2026-05-24 15:26:27,161 - ui.tray - INFO - System tray created
+2026-05-24 15:26:27,162 - engine.sprite_animator - INFO - Frame cache cleared
+2026-05-24 15:26:27,162 - engine.sprite_animator - INFO - Character changed to: aiko
+2026-05-24 15:26:27,388 - ui.pet_window - INFO - PetWindow initialized
+2026-05-24 15:26:27,393 - memory.conversation_store - INFO - Conversation closed: 17
+2026-05-24 15:26:27,393 - memory.conversation_store - INFO - Conversation closed: 17

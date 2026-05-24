@@ -1,0 +1,9 @@
+{
+  "name": "Ichiko",
+  "id": "ichiko",
+  "version": "2.0",
+  "description": "Character: ichiko",
+  "outfits": {
+    "ichiko_casual": "outfits/ichiko_casual"
+  }
+}

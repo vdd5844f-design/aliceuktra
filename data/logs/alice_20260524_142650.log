@@ -1,0 +1,26 @@
+2026-05-24 14:26:50,487 - memory.conversation_store - INFO - Conversation created: 7
+2026-05-24 14:26:50,487 - memory.conversation_store - INFO - Conversation created: 7
+2026-05-24 14:26:50,503 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 14:26:50,504 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 14:26:50,504 - engine.character_manager - INFO - CharacterManager initialized with 2 characters
+2026-05-24 14:26:50,556 - engine.sprite_animator - DEBUG - Loaded 4 frames: idle/default
+2026-05-24 14:26:50,600 - engine.sprite_animator - DEBUG - Emotion path not found: assets\characters\alice\outfits\aiko_gym\idle (character: alice, outfit: aiko_gym)
+2026-05-24 14:26:50,600 - ui.main_window - INFO - AliceMainWindow initialized
+2026-05-24 14:26:50,600 - ui.main_window - INFO - AliceMainWindow initialized
+2026-05-24 14:28:47,745 - engine.sprite_animator - DEBUG - Emotion path not found: assets\characters\alice\outfits\aiko_maid\idle (character: alice, outfit: aiko_maid)
+2026-05-24 14:28:51,277 - engine.sprite_animator - DEBUG - Emotion path not found: assets\characters\alice\outfits\aiko_witch\idle (character: alice, outfit: aiko_witch)
+2026-05-24 14:28:59,922 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 14:28:59,922 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 14:28:59,922 - engine.character_manager - INFO - Loaded character: drift
+2026-05-24 14:28:59,923 - engine.character_manager - INFO - Loaded character: eve
+2026-05-24 14:28:59,923 - engine.character_manager - INFO - Loaded character: ichiko
+2026-05-24 14:28:59,923 - engine.character_manager - INFO - Loaded character: miho
+2026-05-24 14:28:59,924 - engine.character_manager - INFO - Loaded character: natsumi
+2026-05-24 14:28:59,924 - engine.character_manager - INFO - Loaded character: sumi
+2026-05-24 14:28:59,924 - engine.character_manager - INFO - Characters reloaded
+2026-05-24 14:28:59,936 - ui.main_window - INFO - Settings loaded from database
+2026-05-24 14:28:59,936 - ui.main_window - INFO - Settings loaded from database
+2026-05-24 14:30:45,425 - ui.main_window - INFO - MainWindow closing
+2026-05-24 14:30:45,425 - ui.main_window - INFO - MainWindow closing
+2026-05-24 14:30:45,428 - memory.conversation_store - INFO - Conversation closed: 7
+2026-05-24 14:30:45,428 - memory.conversation_store - INFO - Conversation closed: 7

@@ -1,0 +1,21 @@
+2026-05-24 15:26:26,959 - ai.provider_registry - INFO - Provider registered: ollama
+2026-05-24 15:26:26,960 - ai.provider_registry - INFO - Provider registered: openai
+2026-05-24 15:26:26,960 - ai.provider_registry - INFO - Provider registered: openai-compatible
+2026-05-24 15:26:26,961 - ai.provider_registry - INFO - Provider registered: anthropic
+2026-05-24 15:26:26,961 - ai.provider_registry - INFO - Provider registered: claude
+2026-05-24 15:26:26,962 - ai.provider_registry - INFO - Provider registered: gemini
+2026-05-24 15:26:26,962 - ai.provider_registry - INFO - Provider registered: openrouter
+2026-05-24 15:26:27,046 - engine.asset_scanner - INFO - Scanned 625 PNG assets, 8 characters
+2026-05-24 15:26:27,047 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 15:26:27,047 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 15:26:27,047 - engine.character_manager - INFO - Loaded character: drift
+2026-05-24 15:26:27,047 - engine.character_manager - INFO - Loaded character: eve
+2026-05-24 15:26:27,047 - engine.character_manager - INFO - Loaded character: ichiko
+2026-05-24 15:26:27,047 - engine.character_manager - INFO - Loaded character: miho
+2026-05-24 15:26:27,047 - engine.character_manager - INFO - Loaded character: natsumi
+2026-05-24 15:26:27,047 - engine.character_manager - INFO - Loaded character: sumi
+2026-05-24 15:26:27,047 - engine.character_manager - INFO - CharacterManager initialized with 8 characters
+2026-05-24 15:26:27,098 - core.app - INFO - AlicePetApp initialized
+2026-05-24 15:26:27,162 - core.app - INFO - Application started in Studio Mode
+2026-05-24 15:26:27,162 - engine.character_manager - INFO - Active character changed to: aiko
+2026-05-24 15:26:27,394 - core.app - INFO - Application shutdown

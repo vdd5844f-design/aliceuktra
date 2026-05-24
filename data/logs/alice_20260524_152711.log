@@ -1,0 +1,23 @@
+2026-05-24 15:27:11,287 - ai.provider_registry - INFO - Provider registered: ollama
+2026-05-24 15:27:11,288 - ai.provider_registry - INFO - Provider registered: openai
+2026-05-24 15:27:11,288 - ai.provider_registry - INFO - Provider registered: openai-compatible
+2026-05-24 15:27:11,289 - ai.provider_registry - INFO - Provider registered: anthropic
+2026-05-24 15:27:11,289 - ai.provider_registry - INFO - Provider registered: claude
+2026-05-24 15:27:11,290 - ai.provider_registry - INFO - Provider registered: gemini
+2026-05-24 15:27:11,291 - ai.provider_registry - INFO - Provider registered: openrouter
+2026-05-24 15:27:11,372 - engine.asset_scanner - INFO - Scanned 625 PNG assets, 8 characters
+2026-05-24 15:27:11,373 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 15:27:11,373 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 15:27:11,373 - engine.character_manager - INFO - Loaded character: drift
+2026-05-24 15:27:11,373 - engine.character_manager - INFO - Loaded character: eve
+2026-05-24 15:27:11,373 - engine.character_manager - INFO - Loaded character: ichiko
+2026-05-24 15:27:11,373 - engine.character_manager - INFO - Loaded character: miho
+2026-05-24 15:27:11,374 - engine.character_manager - INFO - Loaded character: natsumi
+2026-05-24 15:27:11,374 - engine.character_manager - INFO - Loaded character: sumi
+2026-05-24 15:27:11,374 - engine.character_manager - INFO - CharacterManager initialized with 8 characters
+2026-05-24 15:27:11,407 - voice.voice_manager - INFO - VoiceVox synthesizer initialized
+2026-05-24 15:27:11,408 - core.app - INFO - AlicePetApp initialized
+2026-05-24 15:27:11,411 - memory.conversation_store - INFO - Conversation created: 18
+2026-05-24 15:27:11,411 - memory.conversation_store - INFO - Conversation created: 18
+2026-05-24 15:27:11,437 - ui.tray - INFO - System tray created
+2026-05-24 15:27:11,437 - core.app - INFO - Application started in Studio Mode

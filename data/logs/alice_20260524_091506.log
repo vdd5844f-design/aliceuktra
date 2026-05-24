@@ -1,0 +1,10 @@
+2026-05-24 09:15:06,904 - ai.provider_registry - INFO - Provider registered: ollama
+2026-05-24 09:15:06,905 - ai.provider_registry - INFO - Provider registered: openai
+2026-05-24 09:15:06,905 - ai.provider_registry - INFO - Provider registered: openai-compatible
+2026-05-24 09:15:06,906 - ai.provider_registry - INFO - Provider registered: anthropic
+2026-05-24 09:15:06,906 - ai.provider_registry - INFO - Provider registered: claude
+2026-05-24 09:15:06,907 - ai.provider_registry - INFO - Provider registered: gemini
+2026-05-24 09:15:06,907 - ai.provider_registry - INFO - Provider registered: openrouter
+2026-05-24 09:15:06,925 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 09:15:06,927 - engine.emotion_engine - DEBUG - Detected emotion: happy
+2026-05-24 09:15:06,927 - engine.emotion_engine - DEBUG - Detected emotion: angry

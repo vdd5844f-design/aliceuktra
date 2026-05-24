@@ -1,0 +1,11 @@
+2026-05-24 08:53:45,446 - ui.pet_window - INFO - OutfitManager initialized
+2026-05-24 08:53:45,449 - ui.pet_window - INFO - Current outfit: default
+2026-05-24 08:53:45,449 - ui.pet_window - INFO - PetWindow initialized
+2026-05-24 08:53:45,456 - ui.chat_panel - DEBUG - ChatPanel UI created
+2026-05-24 08:53:45,459 - ui.main_window - DEBUG - UI setup completed
+2026-05-24 08:53:45,459 - ui.main_window - INFO - AliceMainWindow initialized
+2026-05-24 08:53:45,459 - core.app - INFO - AlicePetApp initialized
+2026-05-24 08:53:45,524 - ui.tray - INFO - System tray created
+2026-05-24 08:53:45,525 - core.app - INFO - Application started
+2026-05-24 08:53:45,556 - engine.sprite_animator - DEBUG - Animasyon deðiþti: None -> idle
+2026-05-24 09:13:33,438 - ui.main_window - INFO - Application closed

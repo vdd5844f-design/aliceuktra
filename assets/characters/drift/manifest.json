@@ -1,0 +1,9 @@
+{
+  "name": "Drift",
+  "id": "drift",
+  "version": "2.0",
+  "description": "Character: drift",
+  "outfits": {
+    "drift_base_pack": "outfits/drift_base_pack"
+  }
+}

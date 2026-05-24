@@ -1,0 +1,17 @@
+2026-05-24 09:15:09,486 - memory.conversation_store - INFO - Conversation created: 3
+2026-05-24 09:15:09,486 - memory.conversation_store - INFO - Conversation created: 3
+2026-05-24 09:15:09,496 - ui.pet_window - INFO - OutfitManager initialized
+2026-05-24 09:15:09,497 - ui.pet_window - INFO - Current outfit: default
+2026-05-24 09:15:09,497 - ui.pet_window - INFO - PetWindow initialized
+2026-05-24 09:15:09,502 - ui.chat_panel - DEBUG - ChatPanel UI created
+2026-05-24 09:15:09,504 - ui.main_window - DEBUG - UI setup completed
+2026-05-24 09:15:09,505 - ui.main_window - INFO - AliceMainWindow initialized
+2026-05-24 09:15:09,571 - ui.tray - INFO - System tray created
+2026-05-24 09:15:09,591 - engine.sprite_animator - DEBUG - Animasyon deðiþti: None -> idle
+2026-05-24 09:17:03,790 - ui.main_window - INFO - User message: ananý sik
+2026-05-24 09:17:03,792 - memory.conversation_store - DEBUG - Message added: 1
+2026-05-24 09:17:03,792 - memory.conversation_store - DEBUG - Message added: 1
+2026-05-24 09:17:03,872 - engine.sprite_animator - DEBUG - Animasyon deðiþti: idle -> talk
+2026-05-24 09:17:07,354 - ui.main_window - INFO - Application closed
+2026-05-24 09:17:07,356 - memory.conversation_store - INFO - Conversation closed: 3
+2026-05-24 09:17:07,356 - memory.conversation_store - INFO - Conversation closed: 3

@@ -1,0 +1,81 @@
+{
+  "id": "alice",
+  "name": "Alice",
+  "description": "AI Ultra Pet - Main Character",
+  "default_outfit": "default",
+  "random_daily_outfit": true,
+  "outfits": [
+    {
+      "id": "default",
+      "name": "Alice Default",
+      "path": "outfits/default",
+      "tags": ["main", "default"],
+      "rarity": "common",
+      "enabled": true,
+      "emotions": ["idle", "talk", "happy", "angry", "sleep", "move"]
+    },
+    {
+      "id": "aiko_gym",
+      "name": "Gym",
+      "path": "outfits/aiko_gym",
+      "tags": ["sport", "daily"],
+      "rarity": "common",
+      "enabled": false,
+      "emotions": ["idle", "talk", "happy", "angry", "sleep", "move"]
+    },
+    {
+      "id": "aiko_maid",
+      "name": "Maid",
+      "path": "outfits/aiko_maid",
+      "tags": ["cute", "maid"],
+      "rarity": "rare",
+      "enabled": false,
+      "emotions": ["idle", "talk", "happy", "angry", "sleep", "move"]
+    },
+    {
+      "id": "aiko_witch",
+      "name": "Witch",
+      "path": "outfits/aiko_witch",
+      "tags": ["halloween", "magic"],
+      "rarity": "rare",
+      "enabled": false,
+      "emotions": ["idle", "talk", "happy", "angry", "sleep", "move"]
+    },
+    {
+      "id": "blazer_uniform",
+      "name": "Blazer Uniform",
+      "path": "outfits/blazer_uniform",
+      "tags": ["uniform", "school"],
+      "rarity": "uncommon",
+      "enabled": false,
+      "emotions": ["idle", "talk", "happy", "angry", "sleep", "move"]
+    },
+    {
+      "id": "casual",
+      "name": "Casual",
+      "path": "outfits/casual",
+      "tags": ["casual", "daily"],
+      "rarity": "common",
+      "enabled": false,
+      "emotions": ["idle", "talk", "happy", "angry", "sleep", "move"]
+    },
+    {
+      "id": "summer_uniform",
+      "name": "Summer Uniform",
+      "path": "outfits/summer_uniform",
+      "tags": ["uniform", "seasonal"],
+      "rarity": "uncommon",
+      "enabled": false,
+      "emotions": ["idle", "talk", "happy", "angry", "sleep", "move"]
+    },
+    {
+      "id": "winter_uniform",
+      "name": "Winter Uniform",
+      "path": "outfits/winter_uniform",
+      "tags": ["uniform", "seasonal"],
+      "rarity": "uncommon",
+      "enabled": false,
+      "emotions": ["idle", "talk", "happy", "angry", "sleep", "move"]
+    }
+  ]
+}

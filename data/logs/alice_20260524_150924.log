@@ -1,0 +1,27 @@
+2026-05-24 15:09:24,739 - ai.provider_registry - INFO - Provider registered: ollama
+2026-05-24 15:09:24,739 - ai.provider_registry - INFO - Provider registered: openai
+2026-05-24 15:09:24,739 - ai.provider_registry - INFO - Provider registered: openai-compatible
+2026-05-24 15:09:24,740 - ai.provider_registry - INFO - Provider registered: anthropic
+2026-05-24 15:09:24,740 - ai.provider_registry - INFO - Provider registered: claude
+2026-05-24 15:09:24,741 - ai.provider_registry - INFO - Provider registered: gemini
+2026-05-24 15:09:24,741 - ai.provider_registry - INFO - Provider registered: openrouter
+2026-05-24 15:09:24,832 - engine.asset_scanner - INFO - Scanned 625 PNG assets, 8 characters
+2026-05-24 15:09:24,832 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 15:09:24,832 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 15:09:24,832 - engine.character_manager - INFO - Loaded character: drift
+2026-05-24 15:09:24,832 - engine.character_manager - INFO - Loaded character: eve
+2026-05-24 15:09:24,832 - engine.character_manager - INFO - Loaded character: ichiko
+2026-05-24 15:09:24,833 - engine.character_manager - INFO - Loaded character: miho
+2026-05-24 15:09:24,833 - engine.character_manager - INFO - Loaded character: natsumi
+2026-05-24 15:09:24,833 - engine.character_manager - INFO - Loaded character: sumi
+2026-05-24 15:09:24,833 - engine.character_manager - INFO - CharacterManager initialized with 8 characters
+2026-05-24 15:09:24,863 - voice.voice_manager - INFO - VoiceVox synthesizer initialized
+2026-05-24 15:09:24,864 - core.app - INFO - AlicePetApp initialized
+2026-05-24 15:09:24,865 - memory.conversation_store - INFO - Conversation created: 15
+2026-05-24 15:09:24,865 - memory.conversation_store - INFO - Conversation created: 15
+2026-05-24 15:09:25,177 - ui.main_window - INFO - AliceMainWindow initialized
+2026-05-24 15:09:25,177 - ui.main_window - INFO - AliceMainWindow initialized
+2026-05-24 15:09:25,250 - core.app - INFO - Application started in Studio Mode
+2026-05-24 15:09:34,017 - engine.character_manager - INFO - Active character changed to: aiko
+2026-05-24 15:09:34,020 - engine.sprite_animator - INFO - Frame cache cleared
+2026-05-24 15:09:34,020 - engine.sprite_animator - INFO - Character changed to: aiko

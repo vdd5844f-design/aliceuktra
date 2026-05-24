@@ -1,0 +1,16 @@
+2026-05-24 08:57:09,725 - ui.pet_window - INFO - OutfitManager initialized
+2026-05-24 08:57:09,727 - ui.pet_window - INFO - Current outfit: default
+2026-05-24 08:57:09,727 - ui.pet_window - INFO - PetWindow initialized
+2026-05-24 08:57:09,731 - ui.chat_panel - DEBUG - ChatPanel UI created
+2026-05-24 08:57:09,733 - ui.main_window - DEBUG - UI setup completed
+2026-05-24 08:57:09,733 - ui.main_window - INFO - AliceMainWindow initialized
+2026-05-24 08:57:09,733 - core.app - INFO - AlicePetApp initialized
+2026-05-24 08:57:09,852 - ui.tray - INFO - System tray created
+2026-05-24 08:57:09,852 - core.app - INFO - Application started
+2026-05-24 08:57:09,863 - engine.sprite_animator - DEBUG - Animasyon deðiþti: None -> idle
+2026-05-24 08:57:16,609 - ui.main_window - INFO - User message: asfaf
+2026-05-24 08:57:16,660 - engine.sprite_animator - DEBUG - Animasyon deðiþti: idle -> talk
+2026-05-24 08:57:18,662 - ui.main_window - INFO - Ollama response: Ollama sunucusuna baðlanamýyorum. Lütfen Ollama'ný...
+2026-05-24 08:57:20,668 - ui.main_window - WARNING - TTS engine not available
+2026-05-24 08:57:20,669 - engine.sprite_animator - DEBUG - Animasyon deðiþti: talk -> idle
+2026-05-24 08:57:22,551 - ui.main_window - INFO - Application closed

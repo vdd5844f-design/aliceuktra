@@ -1,0 +1,13 @@
+2026-05-24 09:05:35,116 - ai.provider_registry - INFO - Provider registered: ollama
+2026-05-24 09:05:35,117 - ai.provider_registry - INFO - Provider registered: openai
+2026-05-24 09:05:35,117 - ai.provider_registry - INFO - Provider registered: openai-compatible
+2026-05-24 09:05:35,118 - ai.provider_registry - INFO - Provider registered: anthropic
+2026-05-24 09:05:35,118 - ai.provider_registry - INFO - Provider registered: claude
+2026-05-24 09:05:35,118 - ai.provider_registry - INFO - Provider registered: gemini
+2026-05-24 09:05:35,119 - ai.provider_registry - INFO - Provider registered: openrouter
+2026-05-24 09:05:35,148 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 09:05:37,164 - voice.base - ERROR - VoiceVox health check failed: HTTPConnectionPool(host='127.0.0.1', port=50021): Max retries exceeded with url: /version (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000197A942A390>: Failed to establish a new connection: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý'))
+2026-05-24 09:05:37,164 - voice.voice_manager - WARNING - VoiceVox health check failed
+2026-05-24 09:05:37,169 - core.app - INFO - AI worker thread started
+2026-05-24 09:05:37,171 - core.app - INFO - AlicePetApp initialized (production mode)
+2026-05-24 09:05:37,246 - core.app - INFO - Application started

@@ -1,0 +1,4 @@
+2026-05-21 21:40:03,600 - engine.sprite_animator - DEBUG - Animation changed: None -> idle
+2026-05-21 21:40:03,602 - engine.sprite_animator - DEBUG - Animation changed: idle -> talk
+2026-05-21 21:40:03,604 - engine.emotion_engine - DEBUG - Emotion changed to: happy
+2026-05-21 21:40:03,605 - engine.emotion_engine - DEBUG - Emotion changed to: idle

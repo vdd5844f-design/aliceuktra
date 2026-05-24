@@ -1,0 +1,9 @@
+2026-05-21 21:40:07,123 - voice.piper_tts - DEBUG - Synthesizing with Piper: Merhaba, ben Alice!...
+2026-05-21 21:40:07,464 - voice.piper_tts - ERROR - Piper error: Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\vdd58\AppData\Local\Programs\Python\Python311\Scripts\piper.exe\__main__.py", line 5, in <module>
+  File "C:\Users\vdd58\AppData\Local\Programs\Python\Python311\Lib\site-packages\piper\__main__.py", line 136, in main
+    raise ValueError(
+ValueError: Unable to find voice: tr_TR-kbvcorpus-medium (use piper.download_voices)
+

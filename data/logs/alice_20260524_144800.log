@@ -1,0 +1,39 @@
+2026-05-24 14:48:00,035 - ai.provider_registry - INFO - Provider registered: ollama
+2026-05-24 14:48:00,036 - ai.provider_registry - INFO - Provider registered: openai
+2026-05-24 14:48:00,037 - ai.provider_registry - INFO - Provider registered: openai-compatible
+2026-05-24 14:48:00,038 - ai.provider_registry - INFO - Provider registered: anthropic
+2026-05-24 14:48:00,038 - ai.provider_registry - INFO - Provider registered: claude
+2026-05-24 14:48:00,039 - ai.provider_registry - INFO - Provider registered: gemini
+2026-05-24 14:48:00,040 - ai.provider_registry - INFO - Provider registered: openrouter
+2026-05-24 14:48:00,153 - engine.asset_scanner - INFO - Scanned 625 PNG assets, 8 characters
+2026-05-24 14:48:00,154 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 14:48:00,154 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 14:48:00,154 - engine.character_manager - INFO - Loaded character: drift
+2026-05-24 14:48:00,155 - engine.character_manager - INFO - Loaded character: eve
+2026-05-24 14:48:00,155 - engine.character_manager - INFO - Loaded character: ichiko
+2026-05-24 14:48:00,155 - engine.character_manager - INFO - Loaded character: miho
+2026-05-24 14:48:00,155 - engine.character_manager - INFO - Loaded character: natsumi
+2026-05-24 14:48:00,155 - engine.character_manager - INFO - Loaded character: sumi
+2026-05-24 14:48:00,156 - engine.character_manager - INFO - CharacterManager initialized with 8 characters
+2026-05-24 14:48:00,228 - voice.voice_manager - INFO - VoiceVox synthesizer initialized
+2026-05-24 14:48:00,230 - core.app - INFO - AI worker thread started
+2026-05-24 14:48:00,236 - core.app - INFO - AlicePetApp initialized (production mode)
+2026-05-24 14:48:00,241 - memory.conversation_store - INFO - Conversation created: 11
+2026-05-24 14:48:00,241 - memory.conversation_store - INFO - Conversation created: 11
+2026-05-24 14:48:00,280 - ui.main_window - INFO - AliceMainWindow initialized
+2026-05-24 14:48:00,280 - ui.main_window - INFO - AliceMainWindow initialized
+2026-05-24 14:48:00,520 - ui.tray - INFO - System tray created
+2026-05-24 14:48:00,522 - core.app - INFO - Application started
+2026-05-24 14:48:06,392 - engine.character_manager - INFO - Active character changed to: aiko
+2026-05-24 14:48:06,394 - engine.sprite_animator - INFO - Frame cache cleared
+2026-05-24 14:48:06,394 - engine.sprite_animator - INFO - Character changed to: aiko
+2026-05-24 14:50:53,513 - memory.conversation_store - DEBUG - Message added: 3
+2026-05-24 14:50:53,513 - memory.conversation_store - DEBUG - Message added: 3
+2026-05-24 14:50:53,514 - workers.ai_worker - INFO - Provider set: ollama
+2026-05-24 14:50:55,520 - workers.ai_worker - ERROR - Stream chat error: HTTPConnectionPool(host='127.0.0.1', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001A38E51A3D0>: Failed to establish a new connection: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý'))
+2026-05-24 14:50:55,521 - core.app - ERROR - AI error: HTTPConnectionPool(host='127.0.0.1', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001A38E51A3D0>: Failed to establish a new connection: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý'))
+2026-05-24 14:51:19,138 - ui.main_window - INFO - MainWindow closing
+2026-05-24 14:51:19,138 - ui.main_window - INFO - MainWindow closing
+2026-05-24 14:51:19,140 - memory.conversation_store - INFO - Conversation closed: 11
+2026-05-24 14:51:19,140 - memory.conversation_store - INFO - Conversation closed: 11
+2026-05-24 14:51:19,143 - core.app - INFO - Application shutdown

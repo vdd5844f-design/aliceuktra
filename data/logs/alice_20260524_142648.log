@@ -1,0 +1,29 @@
+2026-05-24 14:26:48,200 - ai.provider_registry - INFO - Provider registered: ollama
+2026-05-24 14:26:48,217 - ai.provider_registry - INFO - Provider registered: openai
+2026-05-24 14:26:48,217 - ai.provider_registry - INFO - Provider registered: openai-compatible
+2026-05-24 14:26:48,221 - ai.provider_registry - INFO - Provider registered: anthropic
+2026-05-24 14:26:48,222 - ai.provider_registry - INFO - Provider registered: claude
+2026-05-24 14:26:48,225 - ai.provider_registry - INFO - Provider registered: gemini
+2026-05-24 14:26:48,229 - ai.provider_registry - INFO - Provider registered: openrouter
+2026-05-24 14:26:48,364 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 14:26:48,375 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 14:26:48,375 - engine.character_manager - INFO - CharacterManager initialized with 2 characters
+2026-05-24 14:26:50,457 - voice.base - ERROR - VoiceVox health check failed: HTTPConnectionPool(host='127.0.0.1', port=50021): Max retries exceeded with url: /version (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002BFD8AD6810>: Failed to establish a new connection: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý'))
+2026-05-24 14:26:50,457 - voice.voice_manager - WARNING - VoiceVox health check failed
+2026-05-24 14:26:50,465 - core.app - INFO - AI worker thread started
+2026-05-24 14:26:50,484 - core.app - INFO - AlicePetApp initialized (production mode)
+2026-05-24 14:26:50,503 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 14:26:50,504 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 14:26:50,504 - engine.character_manager - INFO - CharacterManager initialized with 2 characters
+2026-05-24 14:26:52,236 - core.app - INFO - Application started
+2026-05-24 14:28:59,922 - engine.character_manager - INFO - Loaded character: aiko
+2026-05-24 14:28:59,922 - engine.character_manager - INFO - Loaded character: alice
+2026-05-24 14:28:59,922 - engine.character_manager - INFO - Loaded character: drift
+2026-05-24 14:28:59,923 - engine.character_manager - INFO - Loaded character: eve
+2026-05-24 14:28:59,923 - engine.character_manager - INFO - Loaded character: ichiko
+2026-05-24 14:28:59,923 - engine.character_manager - INFO - Loaded character: miho
+2026-05-24 14:28:59,924 - engine.character_manager - INFO - Loaded character: natsumi
+2026-05-24 14:28:59,924 - engine.character_manager - INFO - Loaded character: sumi
+2026-05-24 14:28:59,924 - engine.character_manager - INFO - Characters reloaded
+2026-05-24 14:29:58,423 - core.app - ERROR - Settings save error: 'SettingsDialog' object has no attribute 'temp_slider'
+2026-05-24 14:30:45,433 - core.app - INFO - Application shutdown
