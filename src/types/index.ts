@@ -1,10 +1,25 @@
-export type Emotion = 'idle' | 'happy' | 'talk' | 'angry' | 'sad' | 'sleep' | 'fear' | 'move'
-export type Provider = 'ollama' | 'openai' | 'anthropic' | 'gemini' | 'openrouter' | 'lmstudio' | 'openai-compatible'
-export type SidebarTab = 'sohbet' | 'karakter' | 'kiyafet' | 'ses' | 'hafiza' | 'ayarlar' | 'gelistirici'
+// ─────────────────────────────────────────────
+// Core enums / unions
+// ─────────────────────────────────────────────
+
+export type Emotion =
+  | 'idle' | 'happy' | 'talk' | 'angry' | 'sad' | 'sleep' | 'fear' | 'move'
+
+export type Provider =
+  | 'ollama' | 'openai' | 'anthropic' | 'gemini'
+  | 'openrouter' | 'lmstudio' | 'openai-compatible'
+
+export type SidebarTab =
+  | 'sohbet' | 'karakter' | 'kiyafet'
+  | 'ses' | 'hafiza' | 'ayarlar' | 'gelistirici'
+
+// ─────────────────────────────────────────────
+// Asset types — mirrored in electron/ipc/assets.ipc.ts
+// ─────────────────────────────────────────────
 
 export interface SpriteEntry {
   path: string
-  fileUrl: string
+  fileUrl: string  // file:///... safe for Electron renderer <img src>
   filename: string
 }
 
@@ -36,6 +51,10 @@ export interface ScanResult {
   errors: string[]
 }
 
+// ─────────────────────────────────────────────
+// Chat
+// ─────────────────────────────────────────────
+
 export interface ChatMessage {
   id: string
   role: 'user' | 'assistant' | 'system'
@@ -44,7 +63,10 @@ export interface ChatMessage {
   timestamp: number
 }
 
-// Voice settings — matches electron/ipc/settings.ipc.ts shape
+// ─────────────────────────────────────────────
+// Settings — must match electron/ipc/settings.ipc.ts DEFAULT_SETTINGS shape
+// ─────────────────────────────────────────────
+
 export interface VoiceSettings {
   engine: string
   voiceName: string
@@ -54,7 +76,6 @@ export interface VoiceSettings {
   autoSpeak: boolean
 }
 
-// Full AppSettings — mirrors the electron DEFAULT_SETTINGS object
 export interface AppSettings {
   provider: Provider
   baseUrl: string
@@ -70,6 +91,10 @@ export interface AppSettings {
   assetsPath: string
 }
 
+// ─────────────────────────────────────────────
+// Defaults
+// ─────────────────────────────────────────────
+
 export const DEFAULT_VOICE: VoiceSettings = {
   engine: 'edge-tts',
   voiceName: 'tr-TR-EmelNeural',
@@ -84,33 +109,35 @@ export const DEFAULT_SETTINGS: AppSettings = {
   baseUrl: 'http://localhost:11434',
   apiKey: '',
   model: 'gemma3:4b',
-  persona: 'Sen Alice, sevimli ve zeki bir yapay zeka arkadaşısın. Türkçe konuşuyorsun.',
+  persona: 'Sen Alice, sevimli ve zeki bir yapay zeka arkadaşısın. Sadece Türkçe konuşuyorsun.',
   temperature: 0.8,
   maxTokens: 1024,
   voice: DEFAULT_VOICE,
-  window: {
-    alwaysOnTop: false,
-  },
+  window: { alwaysOnTop: false },
   assetsPath: '',
 }
 
+// ─────────────────────────────────────────────
+// Labels & lists
+// ─────────────────────────────────────────────
+
 export const EMOTION_LABELS: Record<Emotion, string> = {
-  idle: 'Boşta',
+  idle:  'Boşta',
   happy: 'Mutlu',
-  talk: 'Konuşuyor',
+  talk:  'Konuşuyor',
   angry: 'Kızgın',
-  sad: 'Üzgün',
+  sad:   'Üzgün',
   sleep: 'Uyku',
-  fear: 'Korku',
-  move: 'Hareket',
+  fear:  'Korku',
+  move:  'Hareket',
 }
 
 export const PROVIDERS: { value: Provider; label: string }[] = [
-  { value: 'ollama', label: 'Ollama (Yerel)' },
-  { value: 'lmstudio', label: 'LM Studio' },
+  { value: 'ollama',            label: 'Ollama (Yerel)' },
+  { value: 'lmstudio',          label: 'LM Studio' },
   { value: 'openai-compatible', label: 'Uyumlu API' },
-  { value: 'openai', label: 'OpenAI' },
-  { value: 'anthropic', label: 'Anthropic' },
-  { value: 'gemini', label: 'Google Gemini' },
-  { value: 'openrouter', label: 'OpenRouter' },
+  { value: 'openai',            label: 'OpenAI' },
+  { value: 'anthropic',         label: 'Anthropic' },
+  { value: 'gemini',            label: 'Google Gemini' },
+  { value: 'openrouter',        label: 'OpenRouter' },
 ]

@@ -3,7 +3,7 @@
  * Mirrors preload.ts exactly.
  */
 
-import type { ScanResult, ScannedCharacter, ScannedOutfit, SpriteEntry, AppSettings } from './index'
+import type { ScanResult, ScannedCharacter, ScannedOutfit, SpriteEntry, AppSettings, Emotion } from './index'
 
 interface SpeakPayload {
   text: string
@@ -17,7 +17,7 @@ interface AliceAssets {
   scan:           ()                                                        => Promise<ScanResult>
   getCharacters:  ()                                                        => Promise<ScannedCharacter[]>
   getOutfits:     (characterId: string)                                     => Promise<ScannedOutfit[]>
-  getSprite:      (characterId: string, outfitId: string, emotion: string) => Promise<SpriteEntry | null>
+  getSprite:      (characterId: string, outfitId: string, emotion: Emotion) => Promise<SpriteEntry | null>
   reload:         ()                                                        => Promise<ScanResult>
   setAssetsRoot:  (path: string)                                            => Promise<ScanResult>
   getRoot:        ()                                                        => Promise<string>

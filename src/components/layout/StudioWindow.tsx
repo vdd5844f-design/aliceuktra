@@ -7,35 +7,49 @@ import ChatPanel from '../chat/ChatPanel'
 import RightPanel from '../settings/RightPanel'
 import { useAppStore } from '../../stores/appStore'
 
-const alice = () => (window as unknown as Record<string, unknown>)['alice'] as Record<string, Record<string, (...args: unknown[]) => unknown>>
+const alice = () =>
+  (window as unknown as Record<string, unknown>)['alice'] as
+    Record<string, Record<string, (...args: unknown[]) => unknown>>
 
 export default function StudioWindow() {
-  const { activeTab, setScanResult } = useAppStore()
+  const { activeTab, setScanResult, setSettings } = useAppStore()
   const showRight = activeTab !== 'sohbet'
 
-  // Scan assets on mount
+  // ── On mount: load saved settings then scan assets
   useEffect(() => {
-    const run = async () => {
+    const init = async () => {
+      // Load persisted settings from Electron
+      try {
+        const saved = await alice().settings.get() as Record<string, unknown>
+        if (saved && typeof saved === 'object') {
+          setSettings(saved as Parameters<typeof setSettings>[0])
+        }
+      } catch { /* browser preview — ignore */ }
+
+      // Scan assets
       try {
         const result = await alice().assets.scan() as Parameters<typeof setScanResult>[0]
         setScanResult(result)
-      } catch (e) {
-        console.log('[v0] Asset scan failed:', e)
-      }
+      } catch { /* ignore scan failure */ }
     }
-    run()
-  }, [setScanResult])
+    init()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
-    <div className="flex flex-col w-full h-screen overflow-hidden"
-      style={{ background: '#0a0e27' }}>
+    <div
+      className="flex flex-col w-full h-screen overflow-hidden cyber-grid"
+      style={{ background: '#090d24' }}
+    >
       <Toolbar />
+
       <div className="flex flex-1 overflow-hidden">
         <Sidebar />
         <CharacterPanel />
         <ChatPanel />
         {showRight && <RightPanel />}
       </div>
+
       <StatusBar />
     </div>
   )

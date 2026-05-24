@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import {
   Cat, Check, Volume2, Brain, Settings, Trash2, RefreshCw,
-  User, Shirt, Zap, Code2,
+  User, Shirt, Zap, Code2, FolderOpen,
 } from 'lucide-react'
 import { useAppStore } from '../../stores/appStore'
 import { PROVIDERS, EMOTION_LABELS, type Emotion } from '../../types'
@@ -12,18 +12,20 @@ const alice = () =>
   (window as unknown as Record<string, unknown>)['alice'] as
     Record<string, Record<string, (...args: unknown[]) => unknown>>
 
-// ── Shared primitives
+// ─────────────────────────────────────────────
+// Shared primitives
+// ─────────────────────────────────────────────
 
 const CARD = ({ children, className = '' }: { children: React.ReactNode; className?: string }) => (
   <div
     className={`rounded-xl p-3 ${className}`}
-    style={{ background: 'rgba(20,32,70,0.4)', border: '1px solid rgba(139,92,246,0.12)' }}
+    style={{ background: 'rgba(14,22,48,0.7)', border: '1px solid rgba(139,92,246,0.12)', backdropFilter: 'blur(10px)' }}
   >
     {children}
   </div>
 )
 
-const LABEL = ({ children }: { children: React.ReactNode }) => (
+const SECTION = ({ children }: { children: React.ReactNode }) => (
   <p
     className="text-[10px] font-semibold uppercase tracking-widest mb-2"
     style={{ color: '#475569', fontFamily: 'Rajdhani, sans-serif', letterSpacing: '0.08em' }}
@@ -32,7 +34,7 @@ const LABEL = ({ children }: { children: React.ReactNode }) => (
   </p>
 )
 
-const INPUT = ({
+const FIELD = ({
   label, value, onChange, type = 'text', placeholder = '',
 }: {
   label: string; value: string; onChange: (v: string) => void
@@ -46,7 +48,7 @@ const INPUT = ({
       onChange={e => onChange(e.target.value)}
       placeholder={placeholder}
       className="w-full text-xs px-3 py-2 rounded-lg outline-none"
-      style={{ background: 'rgba(8,12,32,0.6)', color: '#f1f5f9', border: '1px solid rgba(139,92,246,0.15)' }}
+      style={{ background: 'rgba(8,12,32,0.7)', color: '#f1f5f9', border: '1px solid rgba(139,92,246,0.15)' }}
     />
   </div>
 )
@@ -56,14 +58,15 @@ const TOGGLE = ({
 }: {
   label: string; value: boolean; onChange: (v: boolean) => void
 }) => (
-  <div className="flex items-center justify-between">
+  <div className="flex items-center justify-between py-0.5">
     <span className="text-xs" style={{ color: '#94a3b8' }}>{label}</span>
     <button
       onClick={() => onChange(!value)}
       className="w-9 h-5 rounded-full relative cursor-pointer transition-all"
       style={{
-        background: value ? 'rgba(139,92,246,0.5)' : 'rgba(55,65,81,0.5)',
-        border: `1px solid ${value ? 'rgba(139,92,246,0.7)' : 'rgba(55,65,81,0.8)'}`,
+        background: value ? 'rgba(139,92,246,0.55)' : 'rgba(55,65,81,0.5)',
+        border: `1px solid ${value ? 'rgba(139,92,246,0.8)' : 'rgba(55,65,81,0.7)'}`,
+        boxShadow: value ? '0 0 8px rgba(139,92,246,0.25)' : 'none',
       }}
     >
       <div
@@ -75,22 +78,22 @@ const TOGGLE = ({
 )
 
 const BTN = ({
-  onClick, children, color = '#8b5cf6', glow = false, disabled = false,
+  onClick, children, color = '#8b5cf6', glow = false, disabled = false, fullWidth = true,
 }: {
   onClick: () => void; children: React.ReactNode
-  color?: string; glow?: boolean; disabled?: boolean
+  color?: string; glow?: boolean; disabled?: boolean; fullWidth?: boolean
 }) => (
   <motion.button
     whileHover={{ scale: disabled ? 1 : 1.02 }}
     whileTap={{ scale: disabled ? 1 : 0.97 }}
     onClick={onClick}
     disabled={disabled}
-    className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-medium cursor-pointer w-full"
+    className={`flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-medium cursor-pointer ${fullWidth ? 'w-full' : 'flex-1'}`}
     style={{
       background: `${color}15`,
       border: `1px solid ${color}30`,
       color,
-      boxShadow: glow ? `0 0 12px ${color}25` : 'none',
+      boxShadow: glow ? `0 0 14px ${color}25` : 'none',
       opacity: disabled ? 0.5 : 1,
     }}
   >
@@ -98,15 +101,20 @@ const BTN = ({
   </motion.button>
 )
 
-// ── Karakter sekmesi
+// ─────────────────────────────────────────────
+// Karakter sekmesi
+// ─────────────────────────────────────────────
 function KarakterTab() {
   const { characters, activeCharacterId, setActiveCharacterId } = useAppStore()
 
   if (characters.length === 0)
     return (
-      <div className="text-center py-8" style={{ color: '#475569' }}>
-        <p className="text-sm mb-1">Karakter bulunamadı</p>
-        <p className="text-xs">assets/ klasörünü kontrol edin</p>
+      <div className="flex flex-col items-center justify-center py-12 gap-3" style={{ color: '#475569' }}>
+        <User size={28} style={{ color: '#374151' }} />
+        <p className="text-sm">Karakter bulunamadı</p>
+        <p className="text-xs text-center" style={{ color: '#374151' }}>
+          assets/ klasörünü kontrol edin ve<br />Varlıkları Yenile butonuna tıklayın
+        </p>
       </div>
     )
 
@@ -119,43 +127,63 @@ function KarakterTab() {
             key={char.id}
             whileHover={{ x: 2 }}
             onClick={() => setActiveCharacterId(char.id)}
-            className="flex items-center gap-3 p-2.5 rounded-xl cursor-pointer"
+            className="flex items-center gap-3 p-2.5 rounded-xl cursor-pointer transition-all"
             style={{
-              background: active ? 'rgba(139,92,246,0.15)' : 'rgba(139,92,246,0.04)',
-              border: `1px solid ${active ? 'rgba(139,92,246,0.35)' : 'rgba(139,92,246,0.08)'}`,
+              background: active ? 'rgba(139,92,246,0.14)' : 'rgba(139,92,246,0.04)',
+              border: `1px solid ${active ? 'rgba(139,92,246,0.38)' : 'rgba(139,92,246,0.08)'}`,
+              boxShadow: active ? '0 0 12px rgba(139,92,246,0.1)' : 'none',
             }}
           >
-            {/* Preview */}
+            {/* Preview thumbnail */}
             <div
-              className="w-12 h-14 rounded-lg overflow-hidden flex-shrink-0"
-              style={{ background: 'rgba(8,12,32,0.6)', border: '1px solid rgba(139,92,246,0.15)' }}
+              className="w-12 h-16 rounded-lg overflow-hidden flex-shrink-0 flex items-center justify-center"
+              style={{ background: 'rgba(8,12,32,0.7)', border: '1px solid rgba(139,92,246,0.15)' }}
             >
               {char.previewUrl ? (
                 <img
                   src={char.previewUrl}
                   alt={char.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   style={{ imageRendering: 'pixelated' }}
                 />
               ) : (
-                <div className="w-full h-full flex items-center justify-center">
-                  <User size={16} style={{ color: '#475569' }} />
-                </div>
+                <User size={16} style={{ color: '#374151' }} />
               )}
             </div>
+
             {/* Info */}
             <div className="flex-1 min-w-0">
               <p
                 className="text-sm font-semibold truncate"
-                style={{ color: active ? '#8b5cf6' : '#f1f5f9', fontFamily: 'Rajdhani, sans-serif' }}
+                style={{ color: active ? '#8b5cf6' : '#e2e8f0', fontFamily: 'Rajdhani, sans-serif' }}
               >
                 {char.name}
               </p>
-              <p className="text-[10px]" style={{ color: '#64748b' }}>
-                {char.outfits.length} kıyafet · {char.totalPng} PNG
+              <p className="text-[10px] mt-0.5" style={{ color: '#64748b' }}>
+                {char.outfits.length} kıyafet
               </p>
+              <p className="text-[10px]" style={{ color: '#475569' }}>
+                {char.totalPng} PNG
+              </p>
+
+              {/* Aktif Yap button */}
+              {!active && (
+                <button
+                  onClick={e => { e.stopPropagation(); setActiveCharacterId(char.id) }}
+                  className="mt-1 px-2 py-0.5 rounded-md text-[10px] cursor-pointer"
+                  style={{ background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.2)', color: '#8b5cf6' }}
+                >
+                  Aktif Yap
+                </button>
+              )}
             </div>
-            {active && <Check size={14} style={{ color: '#8b5cf6', flexShrink: 0 }} />}
+
+            {active && (
+              <div className="flex flex-col items-center gap-1 flex-shrink-0">
+                <Check size={14} style={{ color: '#8b5cf6' }} />
+                <span className="text-[9px]" style={{ color: '#8b5cf6' }}>Aktif</span>
+              </div>
+            )}
           </motion.div>
         )
       })}
@@ -163,7 +191,9 @@ function KarakterTab() {
   )
 }
 
-// ── Kıyafet sekmesi
+// ─────────────────────────────────────────────
+// Kıyafet sekmesi
+// ─────────────────────────────────────────────
 function KiyafetTab() {
   const { characters, activeCharacterId, activeOutfitId, setActiveOutfitId } = useAppStore()
   const char = characters.find(c => c.id === activeCharacterId)
@@ -174,17 +204,22 @@ function KiyafetTab() {
         Önce bir karakter seçin
       </p>
     )
+
   if (char.outfits.length === 0)
     return (
-      <p className="text-xs text-center py-8" style={{ color: '#475569' }}>
-        Bu karakter için kıyafet bulunamadı
-      </p>
+      <div className="flex flex-col items-center gap-2 py-8" style={{ color: '#475569' }}>
+        <Shirt size={24} style={{ color: '#374151' }} />
+        <p className="text-xs">Bu karakter için kıyafet bulunamadı</p>
+      </div>
     )
 
-  const emotionKeys: Emotion[] = ['idle', 'happy', 'talk', 'angry', 'sleep']
+  const EMOTION_BADGE_KEYS: Emotion[] = ['idle', 'talk', 'happy', 'angry', 'sleep']
 
   return (
     <div className="flex flex-col gap-2">
+      <p className="text-[10px] mb-1" style={{ color: '#475569' }}>
+        {char.name} — {char.outfits.length} kıyafet
+      </p>
       {char.outfits.map(outfit => {
         const active = activeOutfitId === outfit.id
         return (
@@ -192,47 +227,51 @@ function KiyafetTab() {
             key={outfit.id}
             whileHover={{ x: 2 }}
             onClick={() => setActiveOutfitId(outfit.id)}
-            className="flex gap-3 p-2.5 rounded-xl cursor-pointer"
+            className="flex gap-3 p-2.5 rounded-xl cursor-pointer transition-all"
             style={{
               background: active ? 'rgba(139,92,246,0.12)' : 'rgba(139,92,246,0.03)',
               border: `1px solid ${active ? 'rgba(139,92,246,0.3)' : 'rgba(139,92,246,0.07)'}`,
+              boxShadow: active ? '0 0 10px rgba(139,92,246,0.08)' : 'none',
             }}
           >
             {/* Thumbnail */}
             <div
-              className="w-14 h-16 rounded-lg overflow-hidden flex-shrink-0"
-              style={{ background: 'rgba(8,12,32,0.6)', border: '1px solid rgba(139,92,246,0.12)' }}
+              className="w-14 h-18 rounded-lg overflow-hidden flex-shrink-0 flex items-center justify-center"
+              style={{ width: 52, height: 64, background: 'rgba(8,12,32,0.7)', border: '1px solid rgba(139,92,246,0.12)' }}
             >
               {outfit.previewUrl ? (
                 <img
                   src={outfit.previewUrl}
                   alt={outfit.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   style={{ imageRendering: 'pixelated' }}
                 />
               ) : (
-                <div className="w-full h-full flex items-center justify-center">
-                  <Shirt size={14} style={{ color: '#475569' }} />
-                </div>
+                <Shirt size={14} style={{ color: '#374151' }} />
               )}
             </div>
+
             {/* Info */}
             <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-1.5 flex-wrap mb-1">
+              {/* Name + badges row */}
+              <div className="flex items-center gap-1.5 flex-wrap mb-1.5">
                 <p
-                  className="text-xs font-semibold truncate"
-                  style={{ color: active ? '#8b5cf6' : '#f1f5f9', fontFamily: 'Rajdhani, sans-serif' }}
+                  className="text-xs font-semibold"
+                  style={{ color: active ? '#8b5cf6' : '#e2e8f0', fontFamily: 'Rajdhani, sans-serif' }}
                 >
                   {outfit.name}
                 </p>
+
                 {outfit.isCat && (
                   <span
                     className="flex items-center gap-0.5 text-[9px] px-1.5 py-0.5 rounded-full"
                     style={{ background: 'rgba(236,72,153,0.1)', border: '1px solid rgba(236,72,153,0.2)', color: '#ec4899' }}
                   >
-                    <Cat size={9} /> Neko
+                    <Cat size={8} />
+                    Neko
                   </span>
                 )}
+
                 <span
                   className="text-[9px] px-1.5 py-0.5 rounded-full"
                   style={{
@@ -244,18 +283,19 @@ function KiyafetTab() {
                   {outfit.mode === 'frames' ? 'Animasyon' : 'Statik'}
                 </span>
               </div>
+
               {/* Emotion coverage badges */}
-              <div className="flex gap-1 flex-wrap">
-                {emotionKeys.map(e => {
+              <div className="flex gap-1 flex-wrap mb-1.5">
+                {EMOTION_BADGE_KEYS.map(e => {
                   const has = outfit.emotions.includes(e)
                   return (
                     <span
                       key={e}
                       className="text-[9px] px-1.5 py-0.5 rounded-full"
                       style={{
-                        background: has ? 'rgba(139,92,246,0.12)' : 'rgba(55,65,81,0.3)',
-                        border: `1px solid ${has ? 'rgba(139,92,246,0.25)' : 'rgba(55,65,81,0.5)'}`,
-                        color: has ? '#8b5cf6' : '#374151',
+                        background: has ? 'rgba(139,92,246,0.12)' : 'rgba(30,40,80,0.5)',
+                        border: `1px solid ${has ? 'rgba(139,92,246,0.28)' : 'rgba(55,65,81,0.4)'}`,
+                        color: has ? '#a78bfa' : '#374151',
                       }}
                     >
                       {EMOTION_LABELS[e]}
@@ -263,8 +303,22 @@ function KiyafetTab() {
                   )
                 })}
               </div>
-              <p className="text-[10px] mt-1" style={{ color: '#475569' }}>{outfit.totalPng} PNG</p>
+
+              <p className="text-[10px]" style={{ color: '#475569' }}>
+                {outfit.totalPng} PNG · {outfit.packName}
+              </p>
+
+              {!active && (
+                <button
+                  onClick={e => { e.stopPropagation(); setActiveOutfitId(outfit.id) }}
+                  className="mt-1 px-2 py-0.5 rounded-md text-[10px] cursor-pointer"
+                  style={{ background: 'rgba(6,182,212,0.08)', border: '1px solid rgba(6,182,212,0.2)', color: '#06b6d4' }}
+                >
+                  Aktif Yap
+                </button>
+              )}
             </div>
+
             {active && <Check size={13} style={{ color: '#8b5cf6', flexShrink: 0 }} />}
           </motion.div>
         )
@@ -273,14 +327,16 @@ function KiyafetTab() {
   )
 }
 
-// ── Ses sekmesi
+// ─────────────────────────────────────────────
+// Ses sekmesi
+// ─────────────────────────────────────────────
 function SesTab() {
   const { settings, setSettings, isTalking } = useAppStore()
   const voice = settings.voice
 
   const testSpeak = () => {
     alice().voice.speak({
-      text: 'Merhaba! Ben Alice.',
+      text: 'Merhaba! Ben Alice, yapay zeka arkadaşınım.',
       voice: voice.voiceName,
       rate: voice.rate,
       pitch: voice.pitch,
@@ -295,7 +351,7 @@ function SesTab() {
   return (
     <div className="flex flex-col gap-3">
       <CARD>
-        <LABEL>Ses Motoru</LABEL>
+        <SECTION>Ses Motoru</SECTION>
         <div className="mb-3">
           <TOGGLE
             label="Otomatik Konuş"
@@ -303,31 +359,37 @@ function SesTab() {
             onChange={v => setSettings({ voice: { ...voice, autoSpeak: v } })}
           />
         </div>
-        <INPUT
+        <FIELD
           label="Ses Adı"
           value={voice.voiceName}
           onChange={v => setSettings({ voice: { ...voice, voiceName: v } })}
           placeholder="tr-TR-EmelNeural"
         />
-        <INPUT
+        <FIELD
           label="Konuşma Hızı"
           value={voice.rate}
           onChange={v => setSettings({ voice: { ...voice, rate: v } })}
           placeholder="-10%"
         />
-        <INPUT
+        <FIELD
           label="Pitch"
           value={voice.pitch}
           onChange={v => setSettings({ voice: { ...voice, pitch: v } })}
           placeholder="+6Hz"
         />
+        <FIELD
+          label="Ses Seviyesi"
+          value={voice.volume}
+          onChange={v => setSettings({ voice: { ...voice, volume: v } })}
+          placeholder="+8%"
+        />
       </CARD>
 
       <div className="flex gap-2">
-        <BTN onClick={testSpeak} color="#06b6d4">
+        <BTN onClick={testSpeak} color="#06b6d4" fullWidth={false}>
           <Volume2 size={12} /> Test Sesi
         </BTN>
-        <BTN onClick={stopSpeak} color="#ec4899">
+        <BTN onClick={stopSpeak} color="#ec4899" fullWidth={false}>
           Durdur
         </BTN>
       </div>
@@ -336,7 +398,7 @@ function SesTab() {
       <div
         className="flex items-center gap-2 px-3 py-2 rounded-xl"
         style={{
-          background: isTalking ? 'rgba(16,185,129,0.08)' : 'rgba(55,65,81,0.1)',
+          background: isTalking ? 'rgba(16,185,129,0.08)' : 'rgba(30,42,84,0.4)',
           border: `1px solid ${isTalking ? 'rgba(16,185,129,0.2)' : 'rgba(55,65,81,0.2)'}`,
         }}
       >
@@ -354,34 +416,35 @@ function SesTab() {
   )
 }
 
-// ── Hafıza sekmesi
+// ─────────────────────────────────────────────
+// Hafıza sekmesi
+// ─────────────────────────────────────────────
 function HafizaTab() {
   const { messages, clearMessages } = useAppStore()
+  const userCount = messages.filter(m => m.role === 'user').length
+  const assistantCount = messages.filter(m => m.role === 'assistant').length
 
   return (
     <div className="flex flex-col gap-3">
       <CARD>
-        <LABEL>Sohbet Hafızası</LABEL>
-        <div className="flex justify-between mb-2">
-          <span className="text-xs" style={{ color: '#94a3b8' }}>Toplam mesaj</span>
-          <span className="text-xs" style={{ color: '#8b5cf6' }}>{messages.length}</span>
-        </div>
-        <div className="flex justify-between">
-          <span className="text-xs" style={{ color: '#94a3b8' }}>Kullanıcı</span>
-          <span className="text-xs" style={{ color: '#06b6d4' }}>
-            {messages.filter(m => m.role === 'user').length}
-          </span>
-        </div>
-        <div className="flex justify-between mt-1">
-          <span className="text-xs" style={{ color: '#94a3b8' }}>Asistan</span>
-          <span className="text-xs" style={{ color: '#8b5cf6' }}>
-            {messages.filter(m => m.role === 'assistant').length}
-          </span>
+        <SECTION>Sohbet Hafızası</SECTION>
+        <div className="flex flex-col gap-1.5">
+          {[
+            { label: 'Toplam mesaj', value: messages.length, color: '#8b5cf6' },
+            { label: 'Kullanıcı', value: userCount, color: '#06b6d4' },
+            { label: 'Asistan', value: assistantCount, color: '#8b5cf6' },
+          ].map(({ label, value, color }) => (
+            <div key={label} className="flex justify-between items-center">
+              <span className="text-xs" style={{ color: '#94a3b8' }}>{label}</span>
+              <span className="text-xs font-semibold" style={{ color }}>{value}</span>
+            </div>
+          ))}
         </div>
         <p className="text-[10px] mt-3 leading-relaxed" style={{ color: '#374151' }}>
           Hafıza temizlendiğinde AI önceki mesajları hatırlamaz.
         </p>
       </CARD>
+
       <BTN onClick={clearMessages} color="#ec4899">
         <Trash2 size={12} /> Hafızayı Temizle
       </BTN>
@@ -389,7 +452,9 @@ function HafizaTab() {
   )
 }
 
-// ── Ayarlar sekmesi
+// ─────────────────────────────────────────────
+// Ayarlar sekmesi
+// ─────────────────────────────────────────────
 function AyarlarTab() {
   const { settings, setSettings } = useAppStore()
 
@@ -403,38 +468,41 @@ function AyarlarTab() {
     <div className="flex flex-col gap-3">
       {/* AI */}
       <CARD>
-        <LABEL>Yapay Zeka</LABEL>
+        <SECTION>Yapay Zeka</SECTION>
         <div className="mb-2">
           <p className="text-[10px] mb-1" style={{ color: '#64748b' }}>Sağlayıcı</p>
           <select
             value={settings.provider}
             onChange={e => setSettings({ provider: e.target.value as typeof settings.provider })}
             className="w-full text-xs px-3 py-2 rounded-lg outline-none"
-            style={{ background: 'rgba(8,12,32,0.6)', color: '#f1f5f9', border: '1px solid rgba(139,92,246,0.15)', cursor: 'pointer' }}
+            style={{ background: 'rgba(8,12,32,0.7)', color: '#f1f5f9', border: '1px solid rgba(139,92,246,0.15)', cursor: 'pointer' }}
           >
             {PROVIDERS.map(p => <option key={p.value} value={p.value}>{p.label}</option>)}
           </select>
         </div>
-        <INPUT label="Sunucu URL" value={settings.baseUrl} onChange={v => setSettings({ baseUrl: v })} />
-        <INPUT label="API Anahtarı" value={settings.apiKey} onChange={v => setSettings({ apiKey: v })} type="password" />
-        <INPUT label="Model" value={settings.model} onChange={v => setSettings({ model: v })} placeholder="gemma3:4b" />
+        <FIELD label="Sunucu URL" value={settings.baseUrl} onChange={v => setSettings({ baseUrl: v })} />
+        <FIELD label="API Anahtarı" value={settings.apiKey} onChange={v => setSettings({ apiKey: v })} type="password" />
+        <FIELD label="Model" value={settings.model} onChange={v => setSettings({ model: v })} placeholder="gemma3:4b" />
       </CARD>
 
       {/* Persona */}
       <CARD>
-        <LABEL>Persona</LABEL>
+        <SECTION>Persona</SECTION>
         <textarea
           value={settings.persona}
           onChange={e => setSettings({ persona: e.target.value })}
-          rows={4}
+          rows={5}
           className="w-full text-xs px-3 py-2 rounded-lg outline-none resize-none"
-          style={{ background: 'rgba(8,12,32,0.6)', color: '#f1f5f9', border: '1px solid rgba(139,92,246,0.15)', lineHeight: 1.5 }}
+          style={{
+            background: 'rgba(8,12,32,0.7)', color: '#f1f5f9',
+            border: '1px solid rgba(139,92,246,0.15)', lineHeight: 1.5,
+          }}
         />
       </CARD>
 
-      {/* Window */}
+      {/* Pencere */}
       <CARD>
-        <LABEL>Pencere</LABEL>
+        <SECTION>Pencere</SECTION>
         <TOGGLE
           label="Her Zaman Üstte"
           value={settings.window.alwaysOnTop}
@@ -455,17 +523,26 @@ function AyarlarTab() {
   )
 }
 
-// ── Geliştirici sekmesi
+// ─────────────────────────────────────────────
+// Geliştirici sekmesi
+// ─────────────────────────────────────────────
 function GelistiriciTab() {
-  const { scanResult, activeCharacterId, activeOutfitId, activeEmotion, currentSprite, setScanResult } = useAppStore()
+  const {
+    scanResult, activeCharacterId, activeOutfitId, activeEmotion,
+    currentSprite, setScanResult, characters,
+  } = useAppStore()
+
   const [customRoot, setCustomRoot] = useState('')
   const [scanning, setScanning] = useState(false)
 
+  const activeChar = characters.find(c => c.id === activeCharacterId)
+  const activeOutfit = activeChar?.outfits.find(o => o.id === activeOutfitId)
+
   const setRoot = async () => {
-    if (!customRoot) return
+    if (!customRoot.trim()) return
     setScanning(true)
     try {
-      const result = await alice().assets.setAssetsRoot(customRoot) as Parameters<typeof setScanResult>[0]
+      const result = await alice().assets.setAssetsRoot(customRoot.trim()) as Parameters<typeof setScanResult>[0]
       setScanResult(result)
     } finally { setScanning(false) }
   }
@@ -478,64 +555,87 @@ function GelistiriciTab() {
     } finally { setScanning(false) }
   }
 
-  const row = (label: string, value: string | number | null | undefined, color = '#94a3b8') => (
-    <div className="flex justify-between items-start gap-2 py-0.5" key={label}>
-      <span style={{ color: '#475569', flexShrink: 0 }}>{label}</span>
-      <span className="text-right break-all" style={{ color, fontSize: 10, maxWidth: '60%' }}>
+  const Row = ({ label, value, color = '#94a3b8' }: { label: string; value: string | number | null | undefined; color?: string }) => (
+    <div className="flex justify-between items-start gap-2 py-0.5">
+      <span className="text-[10px] flex-shrink-0" style={{ color: '#475569' }}>{label}</span>
+      <span className="text-[10px] text-right break-all font-mono" style={{ color, maxWidth: '62%' }}>
         {value ?? '—'}
       </span>
     </div>
   )
 
+  const totalOutfits = scanResult?.characters.reduce((s, c) => s + c.outfits.length, 0) ?? 0
+
   return (
     <div className="flex flex-col gap-3">
+      {/* Assets root setter */}
       <CARD>
-        <LABEL>Assets Kök Klasörü</LABEL>
+        <SECTION>Assets Kök Klasörü</SECTION>
         <div className="flex gap-2">
           <input
             value={customRoot}
             onChange={e => setCustomRoot(e.target.value)}
             placeholder="C:/ALICE-AI/assets"
             className="flex-1 text-xs px-2 py-1.5 rounded-lg outline-none"
-            style={{ background: 'rgba(8,12,32,0.6)', color: '#f1f5f9', border: '1px solid rgba(139,92,246,0.15)' }}
+            style={{ background: 'rgba(8,12,32,0.7)', color: '#f1f5f9', border: '1px solid rgba(139,92,246,0.15)' }}
           />
           <button
             onClick={setRoot}
-            className="px-3 py-1.5 rounded-lg text-xs cursor-pointer"
-            style={{ background: 'rgba(139,92,246,0.15)', border: '1px solid rgba(139,92,246,0.3)', color: '#8b5cf6' }}
+            disabled={!customRoot.trim() || scanning}
+            className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs cursor-pointer"
+            style={{ background: 'rgba(139,92,246,0.14)', border: '1px solid rgba(139,92,246,0.3)', color: '#8b5cf6' }}
           >
-            Seç
+            <FolderOpen size={11} /> Seç
           </button>
         </div>
-        <p className="text-[10px] mt-1" style={{ color: '#475569' }}>
+        <p className="text-[10px] mt-1.5 break-all" style={{ color: '#475569' }}>
           Mevcut: {scanResult?.assetsRoot ?? '—'}
         </p>
       </CARD>
 
+      {/* Scan summary */}
       <CARD>
-        <LABEL>Tarama Bilgisi</LABEL>
-        <div className="text-[10px] flex flex-col gap-0.5">
-          {row('Assets Root', scanResult?.assetsRoot)}
-          {row('Toplam PNG', scanResult?.totalPng)}
-          {row('Karakter Sayısı', scanResult?.characters.length)}
-          {row('Outfit Sayısı', scanResult?.characters.reduce((s, c) => s + c.outfits.length, 0))}
-          {row('Aktif Karakter', activeCharacterId, '#8b5cf6')}
-          {row('Aktif Kıyafet', activeOutfitId, '#8b5cf6')}
-          {row('Aktif Duygu', activeEmotion, '#06b6d4')}
-          {row('Sprite URL', currentSprite?.fileUrl, '#10b981')}
-          {scanResult?.errors && scanResult.errors.length > 0 &&
-            row('Hatalar', scanResult.errors.join(', '), '#ec4899')}
-        </div>
+        <SECTION>Tarama Özeti</SECTION>
+        <Row label="Assets Root" value={scanResult?.assetsRoot} color="#06b6d4" />
+        <Row label="Toplam PNG" value={scanResult?.totalPng} color="#10b981" />
+        <Row label="Karakter Sayısı" value={scanResult?.characters.length} color="#10b981" />
+        <Row label="Outfit Sayısı" value={totalOutfits} color="#10b981" />
       </CARD>
 
+      {/* Active state */}
+      <CARD>
+        <SECTION>Aktif Durum</SECTION>
+        <Row label="Karakter" value={activeCharacterId} color="#8b5cf6" />
+        <Row label="Kıyafet ID" value={activeOutfitId} color="#8b5cf6" />
+        <Row label="Kıyafet Adı" value={activeOutfit?.name} color="#a78bfa" />
+        <Row label="Duygu" value={activeEmotion} color="#06b6d4" />
+        <Row label="Mod" value={activeOutfit?.mode} color="#06b6d4" />
+        <Row label="Sprite URL" value={currentSprite?.fileUrl} color="#10b981" />
+        <Row label="Sprite Dosyası" value={currentSprite?.filename} color="#10b981" />
+      </CARD>
+
+      {/* Errors */}
+      {scanResult?.errors && scanResult.errors.length > 0 && (
+        <CARD>
+          <SECTION>Hatalar</SECTION>
+          {scanResult.errors.map((e, i) => (
+            <p key={i} className="text-[10px] break-all leading-relaxed" style={{ color: '#ec4899' }}>{e}</p>
+          ))}
+        </CARD>
+      )}
+
       <BTN onClick={reload} color="#06b6d4" glow>
-        <RefreshCw size={12} className={scanning ? 'animate-spin' : ''} /> Yeniden Tara
+        <RefreshCw size={12} className={scanning ? 'animate-spin' : ''} />
+        {scanning ? 'Taranıyor...' : 'Yeniden Tara'}
       </BTN>
     </div>
   )
 }
 
-// ── Main RightPanel
+// ─────────────────────────────────────────────
+// Main RightPanel
+// ─────────────────────────────────────────────
+
 const TITLE_MAP: Record<string, string> = {
   karakter:    'Karakter Seçimi',
   kiyafet:     'Kıyafet Seçimi',
@@ -569,31 +669,39 @@ export default function RightPanel() {
     }
   })()
 
+  const title = TITLE_MAP[activeTab] ?? ''
+  const icon  = ICON_MAP[activeTab] ?? null
+
   if (!content) return null
 
   return (
     <div
       className="flex flex-col flex-shrink-0 overflow-hidden"
-      style={{ width: 280, background: 'rgba(8,12,32,0.7)', borderLeft: '1px solid rgba(139,92,246,0.12)' }}
+      style={{
+        width: 300,
+        background: 'rgba(10,16,38,0.85)',
+        borderLeft: '1px solid rgba(139,92,246,0.14)',
+        backdropFilter: 'blur(20px)',
+      }}
     >
-      {/* Header */}
+      {/* Panel header */}
       <div
         className="flex items-center gap-2 px-4 py-3 flex-shrink-0"
-        style={{ borderBottom: '1px solid rgba(139,92,246,0.1)' }}
+        style={{ borderBottom: '1px solid rgba(139,92,246,0.1)', background: 'rgba(14,22,48,0.6)' }}
       >
-        <span style={{ color: '#8b5cf6' }}>{ICON_MAP[activeTab]}</span>
+        <span style={{ color: '#8b5cf6' }}>{icon}</span>
         <span
           className="text-xs font-semibold uppercase tracking-widest"
-          style={{ fontFamily: 'Rajdhani, sans-serif', color: '#f1f5f9', letterSpacing: '0.08em' }}
+          style={{ fontFamily: 'Rajdhani, sans-serif', color: '#f1f5f9', letterSpacing: '0.09em' }}
         >
-          {TITLE_MAP[activeTab] ?? ''}
+          {title}
         </span>
       </div>
 
-      {/* Content */}
+      {/* Scrollable content */}
       <div
-        className="flex-1 overflow-y-auto px-3 py-3"
-        style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(139,92,246,0.15) transparent' }}
+        className="flex-1 overflow-y-auto p-3"
+        style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(139,92,246,0.2) transparent' }}
       >
         {content}
       </div>
