@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #05070a;
+  --color-panel: rgba(11, 16, 32, 0.88);
+  --color-card: rgba(15, 23, 42, 0.80);
+  --color-border: rgba(124, 58, 237, 0.20);
+  --color-border-bright: rgba(0, 229, 255, 0.30);
+
+  --color-violet: #7c3aed;
+  --color-violet-glow: #a855f7;
+  --color-cyan: #00e5ff;
+  --color-emerald: #00ff99;
+  --color-red: #ff4d6d;
+  --color-amber: #f59e0b;
+
+  --color-foreground: #e5e7eb;
+  --color-muted: #94a3b8;
+  --color-muted-dark: #475569;
+  --color-surface: rgba(15, 23, 42, 0.60);
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Rajdhani', 'Inter', system-ui, sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.4);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 58, 237, 0.7);
+}
+
+/* Neon glow utilities */
+.glow-violet {
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.5), 0 0 32px rgba(168, 85, 247, 0.25);
+}
+.glow-cyan {
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.5), 0 0 32px rgba(0, 229, 255, 0.25);
+}
+.glow-emerald {
+  box-shadow: 0 0 16px rgba(0, 255, 153, 0.5), 0 0 32px rgba(0, 255, 153, 0.2);
+}
+.text-glow-violet {
+  text-shadow: 0 0 8px rgba(168, 85, 247, 0.8), 0 0 16px rgba(168, 85, 247, 0.5);
+}
+.text-glow-cyan {
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.8), 0 0 16px rgba(0, 229, 255, 0.5);
+}
+
+/* Glassmorphism */
+.glass {
+  background: var(--color-panel);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-border);
+}
+.glass-card {
+  background: var(--color-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+}
+
+/* Neon border */
+.neon-border-violet {
+  border: 1px solid rgba(124, 58, 237, 0.5);
+  box-shadow: 0 0 8px rgba(124, 58, 237, 0.2), inset 0 0 8px rgba(124, 58, 237, 0.05);
+}
+.neon-border-cyan {
+  border: 1px solid rgba(0, 229, 255, 0.4);
+  box-shadow: 0 0 8px rgba(0, 229, 255, 0.2), inset 0 0 8px rgba(0, 229, 255, 0.05);
+}
+
+/* Cyber grid background */
+.cyber-grid {
+  background-image:
+    linear-gradient(rgba(124, 58, 237, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Drag region for Electron titlebar */
+.drag-region {
+  -webkit-app-region: drag;
+}
+.no-drag {
+  -webkit-app-region: no-drag;
+}
+
+/* Animations */
+@keyframes neon-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes hologram-ring {
+  0% { transform: rotate(0deg) scale(1); opacity: 0.6; }
+  50% { transform: rotate(180deg) scale(1.05); opacity: 0.9; }
+  100% { transform: rotate(360deg) scale(1); opacity: 0.6; }
+}
+@keyframes scan-line {
+  0% { top: 0; opacity: 0.4; }
+  100% { top: 100%; opacity: 0; }
+}
+@keyframes waveform {
+  0%, 100% { height: 4px; }
+  50% { height: 20px; }
+}
+@keyframes typing-dot {
+  0%, 80%, 100% { transform: scale(0.8); opacity: 0.4; }
+  40% { transform: scale(1.1); opacity: 1; }
+}
+
+.animate-neon-pulse { animation: neon-pulse 2s ease-in-out infinite; }
+.animate-float { animation: float 4s ease-in-out infinite; }
+.animate-hologram { animation: hologram-ring 8s linear infinite; }
+.animate-typing-dot { animation: typing-dot 1.4s ease-in-out infinite; }
+.animate-waveform { animation: waveform 0.8s ease-in-out infinite; }
